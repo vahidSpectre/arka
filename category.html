@@ -11,28 +11,111 @@
     />
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/product.css" />
+    <link rel="stylesheet" href="assets/css/category.css" />
     <link rel="stylesheet" href="assets/css/range.css" />
+    <style></style>
   </head>
   <body>
-    <!-- Header (from index.html) -->
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="loader-content">
+        <div class="loader-logo">ARKA DESIGN</div>
+        <div class="loader-bar-container">
+          <div class="loader-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
     <header class="header-top">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-3 col-6 d-flex align-items-center gap-3">
-            <div
-              class="mobile-toggle"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#mobileMenu"
-            >
+            <div class="mobile-toggle" id="menuToggleTrigger">
               <i class="bi bi-list"></i>
             </div>
-            <a href="index.html" class="logo">ARKA DESIGN</a>
+            <a href="/" class="logo">
+              <img src="./assets/images/Arka--Logo.png" width="120px" />
+            </a>
           </div>
           <div class="col-lg-6 col-12 search-col">
-            <div class="search-bar">
+            <div class="search-bar position-relative">
               <i class="bi bi-search text-muted"></i>
-              <input type="text" placeholder="جستجوی لباس، کفش و اکسسوری..." />
+              <input
+                type="text"
+                id="headerSearchInput"
+                placeholder="جستجوی لباس، کفش و اکسسوری..."
+                autocomplete="off"
+              />
+
+              <!-- Search Results Paper -->
+              <div class="search-results-paper" id="searchResultsPaper">
+                <div class="p-3">
+                  <h6 class="fw-bold mb-3 small text-muted">جستجوهای اخیر</h6>
+                  <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                    <li>
+                      <a
+                        href="#"
+                        class="text-decoration-none text-dark small d-block p-2 rounded-2"
+                        ><i class="bi bi-clock-history me-2"></i> تیشرت نخی
+                        تابستانه</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-decoration-none text-dark small d-block p-2 rounded-2"
+                        ><i class="bi bi-clock-history me-2"></i> کتونی نایک مدل
+                        جردن</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-decoration-none text-dark small d-block p-2 rounded-2"
+                        ><i class="bi bi-clock-history me-2"></i> ست ورزشی
+                        مردانه</a
+                      >
+                    </li>
+                  </ul>
+                  <hr />
+                  <h6 class="fw-bold mb-3 small text-muted">
+                    محصولات پیشنهادی
+                  </h6>
+                  <div class="d-flex flex-column gap-2">
+                    <a
+                      href="#"
+                      class="text-decoration-none text-dark d-flex align-items-center gap-3 p-2 rounded-2 transition-all"
+                    >
+                      <img
+                        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=50"
+                        class="rounded-2"
+                        alt="Product"
+                      />
+                      <div>
+                        <div class="small fw-bold">تیشرت نخی طرح KIT</div>
+                        <div class="extra-small text-danger">۴۱۰,۰۰۰ تومان</div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="text-decoration-none text-dark d-flex align-items-center gap-3 p-2 rounded-2 transition-all"
+                    >
+                      <img
+                        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=50"
+                        class="rounded-2"
+                        alt="Product"
+                      />
+                      <div>
+                        <div class="small fw-bold">کتونی نایک M V2K</div>
+                        <div class="extra-small text-muted">
+                          ۳,۳۸۰,۰۰۰ تومان
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-lg-3 col-6 text-start">
@@ -40,35 +123,235 @@
               class="d-flex align-items-center justify-content-end gap-3 gap-md-4"
             >
               <a
-                href="#"
+                href="login.html"
                 class="text-decoration-none text-dark d-none d-md-block"
               >
                 <i class="bi bi-person fs-5 ms-1"></i> حساب کاربری
               </a>
-              <div class="position-relative cursor-pointer">
-                <i class="bi bi-cart3 fs-3"></i>
+              <!-- Cart Button with Popover -->
+              <a
+                class="position-relative cursor-pointer"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-placement="bottom"
+                data-bs-html="true"
+                href="cart.html"
+                data-bs-content="
+    <div style='min-width: 220px;'>
+      <p class='fw-bold mb-2'>🛒 Cart (2 items)</p>
+      <div class='d-flex align-items-center gap-2 mb-2'>
+        <img src='product.jpg' width='40' height='40' class='rounded' />
+        <div>
+          <p class='mb-0 small'>Product Name</p>
+          <p class='mb-0 text-muted small'>$19.99</p>
+        </div>
+      </div>
+      <hr class='my-2'/>
+      <a href='/cart' class='btn btn-sm btn-dark w-100 text-white'>مشاهده سبد خرید</a>
+    </div>
+  "
+              >
+                <i
+                  data-lucide="shopping-cart"
+                  class="flip-x text-black"
+                  width="30"
+                  height="30"
+                ></i>
                 <span
                   class="badge-cart"
                   style="
-                    background: var(--main-color-one);
+                    background: var(--vegas-natural);
                     color: white;
                     border-radius: 50%;
                     padding: 2px 6px;
                     font-size: 0.7rem;
                     position: absolute;
                     top: -5px;
-                    right: -10px;
+                    left: -10px;
                   "
                   >2</span
                 >
-              </div>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Mobile Side Menu (copied from index.html) -->
+    <!-- Desktop Navigation -->
+    <nav class="nav-bar d-none d-lg-block">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between py-2">
+          <div class="mega-menu-wrapper">
+            <button class="category-btn">
+              <i class="bi bi-grid-fill"></i>
+              دسته‌بندی محصولات
+            </button>
+
+            <!-- Full Width Mega Menu -->
+            <div class="mega-menu">
+              <div class="mega-sidebar">
+                <div class="mega-sidebar-item active" data-target="men-content">
+                  <span>پوشاک آقایان</span>
+                  <i class="bi bi-chevron-left small"></i>
+                </div>
+                <div class="mega-sidebar-item" data-target="women-content">
+                  <span>پوشاک بانوان</span>
+                  <i class="bi bi-chevron-left small"></i>
+                </div>
+                <div class="mega-sidebar-item" data-target="shoes-content">
+                  <span>کفش و کتونی</span>
+                  <i class="bi bi-chevron-left small"></i>
+                </div>
+                <div class="mega-sidebar-item" data-target="accessory-content">
+                  <span>اکسسوری</span>
+                  <i class="bi bi-chevron-left small"></i>
+                </div>
+                <div class="mega-sidebar-item" data-target="sport-content">
+                  <span>ورزشی</span>
+                  <i class="bi bi-chevron-left small"></i>
+                </div>
+              </div>
+
+              <div class="mega-content-area active" id="men-content">
+                <div class="row w-100">
+                  <div class="col-3 mega-col">
+                    <h6>تیشرت و پیراهن</h6>
+                    <ul>
+                      <li><a href="category.html">تیشرت نخی</a></li>
+                      <li><a href="category.html">پولوشرت کلاسیک</a></li>
+                      <li><a href="category.html">پیراهن جین</a></li>
+                      <li><a href="category.html">پیراهن رسمی</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-3 mega-col">
+                    <h6>شلوار و اسلش</h6>
+                    <ul>
+                      <li>
+                        <a href="category.html">شلوار جین مام استایل</a>
+                      </li>
+                      <li><a href="category.html">اسلش ورزشی</a></li>
+                      <li><a href="category.html">شلوار کتان</a></li>
+                      <li><a href="category.html">شورتک</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <div class="mega-promo-card">
+                      <img
+                        src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?q=80&w=800"
+                        alt="Men Promo"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mega-content-area" id="women-content">
+                <div class="row w-100">
+                  <div class="col-3 mega-col">
+                    <h6>مانتو و پالتو</h6>
+                    <ul>
+                      <li><a href="category.html">مانتو کتی</a></li>
+                      <li><a href="category.html">پالتو فوتر</a></li>
+                      <li><a href="category.html">بارانی</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-3 mega-col">
+                    <h6>شال و روسری</h6>
+                    <ul>
+                      <li><a href="category.html">شال نخی</a></li>
+                      <li><a href="category.html">روسری ابریشم</a></li>
+                      <li><a href="category.html">مینی اسکارف</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <div class="mega-promo-card">
+                      <img
+                        src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800"
+                        alt="Women Promo"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mega-content-area" id="shoes-content">
+                <div class="row w-100">
+                  <div class="col-3 mega-col">
+                    <h6>کتونی ورزشی</h6>
+                    <ul>
+                      <li><a href="category.html">نایک Air Force</a></li>
+                      <li><a href="category.html">آدیداس Samba</a></li>
+                      <li><a href="category.html">نیوبالنس</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <div class="mega-promo-card">
+                      <img
+                        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800"
+                        alt="Shoes Promo"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accessories and Sports can follow same pattern -->
+            </div>
+          </div>
+
+          <ul class="nav desktop-nav">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link text-dark">صفحه اصلی</a>
+            </li>
+            <li class="nav-item">
+              <a href="category.html" class="nav-link text-dark">جدیدترین‌ها</a>
+            </li>
+            <li class="nav-item">
+              <a href="category.html" class="nav-link text-dark">تخفیف دارها</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link text-dark">تماس با ما</a>
+            </li>
+          </ul>
+          <a href="#" class="btn btn-sm btn-outline-secondary px-3"
+            >پیگیری سفارش</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Custom Circular Mobile Menu Overlay -->
+    <div class="mobile">
+      <div class="circular-menu-overlay" id="customMobileMenu">
+        <button class="menu-close-btn" id="closeMenuTrigger">
+          <i data-lucide="x"></i>
+        </button>
+        <div class="menu-content">
+          <ul class="nav flex-column align-items-center gap-4">
+            <li class="nav-item">
+              <a href="index.html" class="menu-link"> صفحه اصلی</a>
+            </li>
+            <li class="nav-item">
+              <a href="category.html" class="menu-link">دسته‌بندی‌ها</a>
+            </li>
+            <li class="nav-item">
+              <a href="category.html" class="menu-link">جدیدترین‌ها</a>
+            </li>
+            <li class="nav-item">
+              <a href="cart.html" class="menu-link"> سبد خرید</a>
+            </li>
+            <li class="nav-item">
+              <a href="login.html" class="menu-link"> حساب کاربری</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="menu-link"> تماس با ما</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
       <div class="offcanvas-header border-bottom">
         <h5 class="offcanvas-title fw-bold text-success">منوی اصلی</h5>
@@ -181,7 +464,7 @@
                       <div class="price-field">
                         <label>از</label>
                         <input
-                          type="number"
+                          type="text"
                           id="desktopMinPrice"
                           placeholder="حداقل"
                         />
@@ -189,11 +472,12 @@
                       <div class="price-field">
                         <label>تا</label>
                         <input
-                          type="number"
+                          type="text"
                           id="desktopMaxPrice"
                           placeholder="حداکثر"
                         />
                       </div>
+                      <p class="my-auto">تومان</p>
                     </div>
                     <div id="desktopSlider" class="range-slider"></div>
                     <div class="slider-badge-container">
@@ -577,102 +861,154 @@
       </div>
     </main>
 
-    <!-- Enhanced Footer -->
-    <footer
-      class="footer"
-      style="
-        background: #f8f9fa;
-        border-top: 1px solid #eee;
-        padding: 60px 0;
-        margin-top: 40px;
-      "
-    >
+    <!-- Footer -->
+    <footer class="footer bg-light reveal pt-5">
       <div class="container">
-        <div class="row gy-4">
+        <div class="row gy-5">
+          <!-- Brand & Mission Column -->
           <div class="col-lg-4 col-md-6">
-            <div
-              class="logo mb-3"
-              style="
-                font-weight: 900;
-                color: var(--main-color-one);
-                font-size: 1.6rem;
-              "
-            >
-              ARKA DESIGN
+            <div class="footer-logo mb-3 w-75 h-auto mx-auto">
+              <a href="index.html" class="footer-logo w-100 h-100">
+                <img src="./assets/images/Arka--Logo.png" class="w-100 h-100" />
+              </a>
             </div>
-            <p class="text-muted small">
-              فروشگاه آنلاین وگاس. برترین کیفیت پوشاک با مناسب‌ترین قیمت.
-            </p>
-            <p class="small text-muted mb-1">تلفن: 021-12345678</p>
-            <p class="small text-muted">ایمیل: info@vegas.example</p>
           </div>
 
-          <div class="col-lg-2 col-md-6">
-            <h6 class="fw-bold mb-3">خرید</h6>
-            <ul class="list-unstyled small">
+          <!-- Categories Column -->
+          <div class="col-lg-2 col-6">
+            <h6 class="fw-bold mb-4">دسته‌بندی‌های محصولات</h6>
+            <ul class="list-unstyled d-flex flex-column gap-2 small">
               <li>
-                <a href="#" class="text-decoration-none text-muted"
-                  >جدیدترین‌ها</a
+                <a
+                  href="category.html"
+                  class="text-muted hover-text-primary transition-all"
+                  >پوشاک آقایان</a
                 >
               </li>
               <li>
-                <a href="#" class="text-decoration-none text-muted"
-                  >پرفروش‌ها</a
+                <a
+                  href="category.html"
+                  class="text-muted hover-text-primary transition-all"
+                  >پوشاک بانوان</a
                 >
               </li>
               <li>
-                <a href="#" class="text-decoration-none text-muted">تخفیف‌ها</a>
+                <a
+                  href="category.html"
+                  class="text-muted hover-text-primary transition-all"
+                  >کفش و کتونی</a
+                >
+              </li>
+              <li>
+                <a
+                  href="category.html"
+                  class="text-muted hover-text-primary transition-all"
+                  >اکسسوری و زیورآلات</a
+                >
+              </li>
+              <li>
+                <a
+                  href="category.html"
+                  class="text-muted hover-text-primary transition-all"
+                  >پوشاک ورزشی</a
+                >
               </li>
             </ul>
           </div>
 
-          <div class="col-lg-2 col-md-6">
-            <h6 class="fw-bold mb-3">خدمات مشتریان</h6>
-            <ul class="list-unstyled small">
+          <!-- Support Column -->
+          <div class="col-lg-2 col-6">
+            <h6 class="fw-bold mb-4">خدمات مشتریان</h6>
+            <ul class="list-unstyled d-flex flex-column gap-2 small">
               <li>
-                <a href="#" class="text-decoration-none text-muted"
+                <a href="#" class="text-muted hover-text-primary transition-all"
                   >پرسش‌های متداول</a
                 >
               </li>
               <li>
-                <a href="#" class="text-decoration-none text-muted"
-                  >شیوه‌های پرداخت</a
+                <a href="#" class="text-muted hover-text-primary transition-all"
+                  >رویه‌های بازگرداندن کالا</a
                 >
               </li>
               <li>
-                <a href="#" class="text-decoration-none text-muted"
-                  >حریم خصوصی</a
+                <a href="#" class="text-muted hover-text-primary transition-all"
+                  >شرایط استفاده و حریم خصوصی</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-muted hover-text-primary transition-all"
+                  >درباره ما</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-muted hover-text-primary transition-all"
+                  >تماس با ما</a
                 >
               </li>
             </ul>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <h6 class="fw-bold mb-3">خبرنامه</h6>
-            <p class="small text-muted">
-              برای دریافت جدیدترین تخفیف‌ها ایمیل خود را وارد کنید.
-            </p>
-            <div class="d-flex gap-2">
-              <input
-                class="form-control form-control-sm"
-                placeholder="ایمیل شما"
-              />
-              <button class="btn btn-success btn-sm">عضویت</button>
-            </div>
-            <div class="mt-3">
-              <a href="#" class="me-2"
-                ><i class="bi bi-instagram" style="font-size: 1.2rem"></i
-              ></a>
-              <a href="#" class="me-2"
-                ><i class="bi bi-telegram" style="font-size: 1.2rem"></i
-              ></a>
+          <!-- Contact & Newsletter Column -->
+          <div class="col-lg-4 col-md-12">
+            <h6 class="fw-bold mb-4">ارتباط با ما</h6>
+            <div class="small text-muted d-flex flex-column gap-3 mb-4">
+              <div class="d-flex align-items-start gap-2">
+                <i class="bi bi-geo-alt text-dark mt-1"></i>
+                <span
+                  >پاکدشت مامازند، خیابان ولیعصر، خیابان علامه، پلاک ۳۱</span
+                >
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-telephone text-dark"></i>
+                <span>تلفن: ۰۲۱-۱۲۳۴۵۶۷۸</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-envelope text-dark"></i>
+                <span>ایمیل: info@vegas.example</span>
+              </div>
+              <div class="d-flex gap-3 social-links">
+                <a
+                  href="#"
+                  class="text-dark fs-4 transition-all opacity-75 hover-opacity-100"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+                <a
+                  href="#"
+                  class="text-dark fs-4 transition-all opacity-75 hover-opacity-100"
+                  ><i class="bi bi-telegram"></i
+                ></a>
+                <a
+                  href="#"
+                  class="text-dark fs-4 transition-all opacity-75 hover-opacity-100"
+                  ><i class="bi bi-whatsapp"></i
+                ></a>
+                <a
+                  href="#"
+                  class="text-dark fs-4 transition-all opacity-75 hover-opacity-100"
+                  ><i class="bi bi-twitter-x"></i
+                ></a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="row mt-4">
-          <div class="col-12 text-center text-muted small">
-            © 2026 ARKA DESIGN — تمامی حقوق محفوظ است.
+        <!-- Bottom Footer -->
+        <div class="row mt-3 pt-3 border-top">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <p class="text-muted small mb-0">
+              © ۲۰۲۶ تمامی حقوق برای فروشگاه
+              <span class="fw-bold text-dark">ARKA DESIGN</span> محفوظ است.
+            </p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <div
+              class="payment-badges d-flex justify-content-center justify-content-md-end gap-3 opacity-50"
+            >
+              <p>
+                طراحی و توسعه
+                <a class="text-black" href="avatarweb.net">آواتار وب</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -712,12 +1048,14 @@
             <div class="price-input-container">
               <div class="price-field">
                 <label>از</label>
-                <input type="number" id="mobileMinPrice" placeholder="حداقل" />
+                <input type="text" id="mobileMinPrice" placeholder="حداقل" />
               </div>
               <div class="price-field">
                 <label>تا</label>
-                <input type="number" id="mobileMaxPrice" placeholder="حداکثر" />
+                <input type="text" id="mobileMaxPrice" placeholder="حداکثر" />
               </div>
+                                    <p class="my-auto">تومان</p>
+
             </div>
             <div id="mobileSlider" class="range-slider"></div>
             <div class="slider-badge-container">
@@ -796,126 +1134,195 @@
 
     <!-- External Scripts (Assuming range.js contains the range-slider-input library) -->
     <script src="assets/js/bootstrap.boundle.js"></script>
+    <script src="assets/js/lucide.min.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/index.js"></script>
     <script src="assets/js/range.js"></script>
     <script>
-      // DOM Elements for Filtering
-      const filtersModal = document.getElementById("filtersModal");
-      const openFiltersBtn = document.getElementById("openMobileFilters");
-      const closeFiltersBtn = document.getElementById("closeFiltersBtn");
-      const resetFiltersBtn = document.getElementById("resetFiltersBtn");
-      const applyFiltersBtn = document.getElementById("applyFiltersBtn");
-      const filterCheckboxes = document.querySelectorAll(".form-check-input");
+      document.addEventListener("DOMContentLoaded", function () {
+        /* ─────────────────────────────────────────
+     Constants
+  ───────────────────────────────────────── */
+        const MIN = 0;
+        const MAX = 10_000_000;
+        const DEFAULT_MIN = 1_000_000;
+        const DEFAULT_MAX = 6_000_000;
 
-      // Price Syncing Variables
-      const minPrice = 0;
-      const maxPrice = 5000000;
-      const initialValue = [200000, 3500000];
+        /* ─────────────────────────────────────────
+     Helpers
+  ───────────────────────────────────────── */
 
-      // Setup Price Slider Sync Utility
-      function setupPriceSync(sliderId, minInpId, maxInpId) {
-        const sliderEl = document.getElementById(sliderId);
-        const minInp = document.getElementById(minInpId);
-        const maxInp = document.getElementById(maxInpId);
-
-        if (!sliderEl || !minInp || !maxInp) return;
-        const slider = rangeSlider(sliderEl, {
-          min: minPrice,
-          max: maxPrice,
-          step: 50000,
-          value: initialValue,
-          rtl: true,
-          onInput: (value) => {
-            minInp.value = value[0];
-            maxInp.value = value[1];
-            console.log(value);
-          },
-        });
-
-        // Set initial input values
-        minInp.value = initialValue[0];
-        maxInp.value = initialValue[1];
-
-        // Handle Input Changes
-        const handleInpChange = () => {
-          let min = parseInt(minInp.value) || 0;
-          let max = parseInt(maxInp.value) || 0;
-
-          // Basic validation: clamp to global min/max
-          min = Math.max(minPrice, Math.min(min, max));
-          max = Math.min(maxPrice, Math.max(max, min));
-
-          slider.value([min, max]);
-        };
-
-        minInp.addEventListener("change", handleInpChange);
-        maxInp.addEventListener("change", handleInpChange);
-
-        return slider;
-      }
-
-      // Initialize both Desktop and Mobile sliders
-      const desktopSlider = setupPriceSync(
-        "desktopSlider",
-        "desktopMinPrice",
-        "desktopMaxPrice",
-      );
-      const mobileSlider = setupPriceSync(
-        "mobileSlider",
-        "mobileMinPrice",
-        "mobileMaxPrice",
-      );
-
-      // Modal Handlers
-      if (openFiltersBtn) {
-        openFiltersBtn.addEventListener("click", () => {
-          filtersModal.classList.add("active");
-          document.body.style.overflow = "hidden";
-        });
-      }
-
-      closeFiltersBtn.addEventListener("click", () => {
-        filtersModal.classList.remove("active");
-        document.body.style.overflow = "";
-      });
-
-      filtersModal.addEventListener("click", (e) => {
-        if (e.target === filtersModal) {
-          filtersModal.classList.remove("active");
-          document.body.style.overflow = "";
+        // Use plain numbers in inputs (type="number" rejects formatted strings)
+        function setInput(input, value) {
+          input.value = Intl.NumberFormat("fa-IR").format(Math.round(value));
         }
-      });
 
-      // Reset Logic
-      resetFiltersBtn.addEventListener("click", () => {
-        filterCheckboxes.forEach((cb) => (cb.checked = false));
-        if (desktopSlider) desktopSlider.value(initialValue);
-        if (mobileSlider) mobileSlider.value(initialValue);
+        function parsePrice(value) {
+          return Number(
+            String(value)
+              .replace(/[۰-۹]/g, (d) => d.charCodeAt(0) - "۰".charCodeAt(0))
+              .replace(/,/g, "")
+              .trim(),
+          );
+        }
 
-        // Manual trigger for inputs
-        [
+        function clamp(val, min, max) {
+          return Math.min(Math.max(val, min), max);
+        }
+
+        /* ─────────────────────────────────────────
+     Generic slider factory
+  ───────────────────────────────────────── */
+        function createPriceSlider(sliderId, minInputId, maxInputId) {
+          const sliderEl = document.getElementById(sliderId);
+          const minInput = document.getElementById(minInputId);
+          const maxInput = document.getElementById(maxInputId);
+
+          if (!sliderEl || !minInput || !maxInput) return null;
+
+          noUiSlider.create(sliderEl, {
+            start: [DEFAULT_MIN, DEFAULT_MAX],
+            connect: true,
+            direction: "rtl",
+            step: 50_000,
+            range: { min: MIN, max: MAX },
+          });
+
+          // Slider → inputs
+          sliderEl.noUiSlider.on("update", function (values) {
+            setInput(minInput, values[0]);
+            setInput(maxInput, values[1]);
+          });
+
+          // Inputs → slider
+          function syncFromInputs() {
+            let lo = parsePrice(minInput.value);
+            let hi = parsePrice(maxInput.value);
+
+            if (isNaN(lo) || lo === 0) lo = DEFAULT_MIN;
+            if (isNaN(hi) || hi === 0) hi = DEFAULT_MAX;
+
+            lo = clamp(lo, MIN, MAX);
+            hi = clamp(hi, MIN, MAX);
+            if (lo > hi) lo = hi;
+
+            sliderEl.noUiSlider.set([lo, hi]);
+          }
+
+          minInput.addEventListener("change", syncFromInputs);
+          maxInput.addEventListener("change", syncFromInputs);
+          minInput.addEventListener("blur", syncFromInputs);
+          maxInput.addEventListener("blur", syncFromInputs);
+
+          return sliderEl;
+        }
+
+        /* ─────────────────────────────────────────
+     Init sliders
+  ───────────────────────────────────────── */
+        const desktopSliderEl = createPriceSlider(
+          "desktopSlider",
           "desktopMinPrice",
           "desktopMaxPrice",
-          "mobileMinPrice",
-          "mobileMaxPrice",
-        ].forEach((id) => {
-          const el = document.getElementById(id);
-          if (id.includes("Min")) el.value = initialValue[0];
-          else el.value = initialValue[1];
-        });
-      });
+        );
 
-      applyFiltersBtn.addEventListener("click", () => {
-        const selected = Array.from(filterCheckboxes)
-          .filter((cb) => cb.checked)
-          .map((cb) => cb.id);
+        let mobileSliderEl = null; // initialized lazily when modal opens
 
-        console.log("Applying filters:", {
-          checkboxes: selected,
-          price: mobileSlider ? mobileSlider.value() : initialValue,
-        });
+        /* ─────────────────────────────────────────
+     Mobile filters modal
+  ───────────────────────────────────────── */
+        const filtersModal = document.getElementById("filtersModal");
+        const openFiltersBtn = document.getElementById("openMobileFilters");
+        const closeFiltersBtn = document.getElementById("closeFiltersBtn");
+        const applyFiltersBtn = document.getElementById("applyFiltersBtn");
+        const resetFiltersBtn = document.getElementById("resetFiltersBtn");
 
-        filtersModal.classList.remove("active");
-        document.body.style.overflow = "";
+        function openModal() {
+          if (!filtersModal) return;
+          filtersModal.classList.add("active");
+          document.body.style.overflow = "hidden";
+
+          // Init mobile slider the first time the modal opens
+          // (it's hidden before this so noUiSlider can't measure it)
+          if (!mobileSliderEl) {
+            mobileSliderEl = createPriceSlider(
+              "mobileSlider",
+              "mobileMinPrice",
+              "mobileMaxPrice",
+            );
+          }
+        }
+
+        function closeModal() {
+          if (!filtersModal) return;
+          const content = filtersModal.querySelector(".filters-modal-content");
+          content.style.animation =
+            "sheetSlideDown 0.35s cubic-bezier(0.32, 0.72, 0, 1) forwards";
+          filtersModal.style.animation = "backdropFadeOut 0.35s ease forwards";
+          setTimeout(() => {
+            filtersModal.classList.remove("active");
+            content.style.animation = "";
+            filtersModal.style.animation = "";
+            document.body.style.overflow = "";
+          }, 350);
+        }
+
+        if (openFiltersBtn) openFiltersBtn.addEventListener("click", openModal);
+        if (closeFiltersBtn)
+          closeFiltersBtn.addEventListener("click", closeModal);
+
+        // Close on backdrop click
+        if (filtersModal) {
+          filtersModal.addEventListener("click", function (e) {
+            if (e.target === filtersModal) closeModal();
+          });
+        }
+
+        /* ─────────────────────────────────────────
+     Apply filters
+  ───────────────────────────────────────── */
+        if (applyFiltersBtn) {
+          applyFiltersBtn.addEventListener("click", function () {
+            const allCheckboxes = document.querySelectorAll(
+              "#filtersModal .form-check-input",
+            );
+            const selected = Array.from(allCheckboxes)
+              .filter((cb) => cb.checked)
+              .map((cb) => cb.id);
+
+            const priceValues =
+              mobileSliderEl && mobileSliderEl.noUiSlider
+                ? mobileSliderEl.noUiSlider.get()
+                : [DEFAULT_MIN, DEFAULT_MAX];
+
+            console.log("Filters applied:", {
+              checkboxes: selected,
+              minPrice: Math.round(priceValues[0]),
+              maxPrice: Math.round(priceValues[1]),
+            });
+
+            // ← plug your actual filter/fetch logic here
+
+            closeModal();
+          });
+        }
+
+        /* ─────────────────────────────────────────
+     Reset filters
+  ───────────────────────────────────────── */
+        if (resetFiltersBtn) {
+          resetFiltersBtn.addEventListener("click", function () {
+            document
+              .querySelectorAll("#filtersModal .form-check-input")
+              .forEach((cb) => {
+                cb.checked = false;
+              });
+
+            if (mobileSliderEl && mobileSliderEl.noUiSlider) {
+              mobileSliderEl.noUiSlider.set([DEFAULT_MIN, DEFAULT_MAX]);
+            }
+          });
+        }
       });
     </script>
   </body>

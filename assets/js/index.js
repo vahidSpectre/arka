@@ -4,6 +4,60 @@ document.addEventListener("DOMContentLoaded", function () {
     lucide.createIcons();
   }
 
+  // ─── Search Results Paper Logic ─────────────────────────────
+  const searchInput = document.getElementById("headerSearchInput");
+  const searchPaper = document.getElementById("searchResultsPaper");
+
+  if (searchInput && searchPaper && typeof gsap !== "undefined") {
+    // Initial state setup for animation
+    gsap.set(searchPaper, {
+      opacity: 0,
+      visibility: "hidden",
+      y: 15,
+      scale: 0.98,
+    });
+
+    const paperTl = gsap.to(searchPaper, {
+      opacity: 1,
+      visibility: "visible",
+      y: 0,
+      scale: 1,
+      duration: 0.25,
+      ease: "back.out(1.7)",
+      paused: true,
+    });
+
+    searchInput.addEventListener("focus", () => {
+      paperTl.play();
+    });
+
+window.addEventListener("scroll", () => {
+  // Check visibility via opacity instead of activeElement (unreliable on scroll)
+  const isVisible = gsap.getProperty(searchPaper, "opacity") > 0;
+  if (isVisible) {
+    paperTl.reverse();
+    searchInput.blur();
+  }
+});
+
+    // Handle clicks outside to close
+    document.addEventListener("click", (e) => {
+      const isInside =
+        searchInput.contains(e.target) || searchPaper.contains(e.target);
+      if (!isInside) {
+        paperTl.reverse();
+      }
+    });
+
+    // Accessibility: Close on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        paperTl.reverse();
+        searchInput.blur();
+      }
+    });
+  }
+
   // ─── Helper: English → Persian digits ───────────────────────
   function toPersianDigits(n) {
     const farsiDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
@@ -82,13 +136,12 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(updateCountdown, 1000);
   updateCountdown();
 
- const menuOverlay = document.getElementById("customMobileMenu");
- const menuToggle = document.getElementById("menuToggleTrigger");
- const closeToggle = document.getElementById("closeMenuTrigger");
- const menuLinks = menuOverlay
-   ? menuOverlay.querySelectorAll(".menu-link")
-   : [];
-
+  const menuOverlay = document.getElementById("customMobileMenu");
+  const menuToggle = document.getElementById("menuToggleTrigger");
+  const closeToggle = document.getElementById("closeMenuTrigger");
+  const menuLinks = menuOverlay
+    ? menuOverlay.querySelectorAll(".menu-link")
+    : [];
 
   if (menuOverlay && menuToggle && closeToggle && typeof gsap !== "undefined") {
     const menuTl = gsap.timeline({ paused: true, reversed: true });
@@ -386,10 +439,10 @@ document.addEventListener("DOMContentLoaded", function () {
     updateThumb();
   }
 
-  const header = document.querySelector("header");
+  // const header = document.querySelector("header");
 
-  const headroom = new Headroom(header);
-  headroom.init();
+  // const headroom = new Headroom(header);
+  // headroom.init();
 });
 
 // ─── Preloader ───────────────────────────────────────────────
