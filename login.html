@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>ورود — ARKA DESIGN</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/auth.css" />
+    <link href="assets/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/auth.js" defer></script>
+  </head>
+  <body>
+    <main class="auth-wrapper position-relative">
+        <img
+            class="abstract"
+            src="./assets/images/login.webp"
+            alt=""
+          />
+      <div class="auth-container">
+        <div class="auth-header">
+          <div class="brand-logo">
+            <a href="/" class="auth-logo">
+              <img src="./assets/images/Arka--Logo.png" width="160px" />
+            </a>
+          </div>
+          <h1>خوش آمدید</h1>
+          <p class="subtitle">وارد حساب کاربری خود شوید</p>
+        </div>
+
+        <form id="login-form" novalidate>
+          <div class="field">
+            <label for="login-id">ایمیل یا شماره تلفن</label>
+            <input
+              id="login-id"
+              type="text"
+              placeholder="you@example.com یا 09xxxxxxxxx"
+              minlength="4"
+              maxlength="50"
+              required
+              autocomplete="username"
+            />
+          </div>
+
+          <div class="field">
+            <label for="login-password">رمز عبور</label>
+            <input
+              id="login-password"
+              type="password"
+              placeholder="حداقل ۶ کاراکتر"
+              minlength="6"
+              maxlength="64"
+              required
+              autocomplete="current-password"
+            />
+          </div>
+
+          <div class="row row-between" style="margin: 16px 0">
+            <label class="checkbox-group"
+              ><input type="checkbox" /> مرا به خاطر بسپار</label
+            >
+            <a href="otp.html" class="link small">بازیابی رمز</a>
+          </div>
+
+          <div id="login-error" class="error"></div>
+
+          <button class="auth-btn" type="submit" style="margin-top: 24px">
+            ورود
+          </button>
+
+          <p class="note">
+            حساب کاربری ندارید؟
+            <a href="signup.html" class="link">اینجا ثبت‌نام کنید</a>
+          </p>
+        </form>
+      </div>
+    </main>
+    <script src="assets/js/bootstrap.boundle.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/jalaali.min.js"></script>
+    <script src="assets/js/lucide.min.js"></script>
+  </body>
+</html>

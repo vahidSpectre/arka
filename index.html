@@ -1,0 +1,1094 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARKA DESIGN - فروشگاه پوشاک حرفه‌ای</title>
+    <!-- Local CSS dependencies -->
+    <link href="./assets/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/product.css" />
+  </head>
+  <body>
+    <div class="vegas-app">
+      <!-- Preloader -->
+      <div id="preloader">
+        <div class="loader-content">
+          <div class="loader-logo">ARKA DESIGN</div>
+          <div class="loader-bar-container">
+            <div class="loader-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header -->
+      <header class="header-top">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-3 col-6 d-flex align-items-center gap-3">
+              <div class="mobile-toggle" id="menuToggleTrigger">
+                <i class="bi bi-list"></i>
+              </div>
+              <a href="/" class="logo">
+                <img src="./assets/images/Arka--Logo.png" width="120px" />
+              </a>
+            </div>
+            <div class="col-lg-6 col-12 search-col">
+              <div class="search-bar">
+                <i class="bi bi-search text-muted"></i>
+                <input
+                  type="text"
+                  placeholder="جستجوی لباس، کفش و اکسسوری..."
+                />
+              </div>
+            </div>
+            <div class="col-lg-3 col-6 text-start">
+              <div
+                class="d-flex align-items-center justify-content-end gap-3 gap-md-4"
+              >
+                <a
+                  href="login.html"
+                  class="text-decoration-none text-dark d-none d-md-block"
+                >
+                  <i class="bi bi-person fs-5 ms-1"></i> حساب کاربری
+                </a>
+                <!-- Cart Button with Popover -->
+                <a
+                  class="position-relative cursor-pointer"
+                  data-bs-toggle="popover"
+                  data-bs-trigger="hover focus"
+                  data-bs-placement="bottom"
+                  data-bs-html="true"
+                  href="cart.html"
+                  data-bs-content="
+    <div style='min-width: 220px;'>
+      <p class='fw-bold mb-2'>🛒 Cart (2 items)</p>
+      <div class='d-flex align-items-center gap-2 mb-2'>
+        <img src='product.jpg' width='40' height='40' class='rounded' />
+        <div>
+          <p class='mb-0 small'>Product Name</p>
+          <p class='mb-0 text-muted small'>$19.99</p>
+        </div>
+      </div>
+      <hr class='my-2'/>
+      <a href='/cart' class='btn btn-sm btn-dark w-100 text-white'>مشاهده سبد خرید</a>
+    </div>
+  "
+                >
+                  <i
+                    data-lucide="shopping-cart"
+                    class="flip-x text-black"
+                    width="30"
+                    height="30"
+                  ></i>
+                  <span
+                    class="badge-cart"
+                    style="
+                      background: var(--vegas-natural);
+                      color: white;
+                      border-radius: 50%;
+                      padding: 2px 6px;
+                      font-size: 0.7rem;
+                      position: absolute;
+                      top: -5px;
+                      left: -10px;
+                    "
+                    >2</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-bar d-none d-lg-block">
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-between py-2">
+            <div class="mega-menu-wrapper">
+              <button class="category-btn">
+                <i class="bi bi-grid-fill"></i>
+                دسته‌بندی محصولات
+              </button>
+
+              <!-- Full Width Mega Menu -->
+              <div class="mega-menu">
+                <div class="mega-sidebar">
+                  <div
+                    class="mega-sidebar-item active"
+                    data-target="men-content"
+                  >
+                    <span>پوشاک آقایان</span>
+                    <i class="bi bi-chevron-left small"></i>
+                  </div>
+                  <div class="mega-sidebar-item" data-target="women-content">
+                    <span>پوشاک بانوان</span>
+                    <i class="bi bi-chevron-left small"></i>
+                  </div>
+                  <div class="mega-sidebar-item" data-target="shoes-content">
+                    <span>کفش و کتونی</span>
+                    <i class="bi bi-chevron-left small"></i>
+                  </div>
+                  <div
+                    class="mega-sidebar-item"
+                    data-target="accessory-content"
+                  >
+                    <span>اکسسوری</span>
+                    <i class="bi bi-chevron-left small"></i>
+                  </div>
+                  <div class="mega-sidebar-item" data-target="sport-content">
+                    <span>ورزشی</span>
+                    <i class="bi bi-chevron-left small"></i>
+                  </div>
+                </div>
+
+                <div class="mega-content-area active" id="men-content">
+                  <div class="row w-100">
+                    <div class="col-3 mega-col">
+                      <h6>تیشرت و پیراهن</h6>
+                      <ul>
+                        <li><a href="category.html">تیشرت نخی</a></li>
+                        <li><a href="category.html">پولوشرت کلاسیک</a></li>
+                        <li><a href="category.html">پیراهن جین</a></li>
+                        <li><a href="category.html">پیراهن رسمی</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-3 mega-col">
+                      <h6>شلوار و اسلش</h6>
+                      <ul>
+                        <li>
+                          <a href="category.html">شلوار جین مام استایل</a>
+                        </li>
+                        <li><a href="category.html">اسلش ورزشی</a></li>
+                        <li><a href="category.html">شلوار کتان</a></li>
+                        <li><a href="category.html">شورتک</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-6">
+                      <div class="mega-promo-card">
+                        <img
+                          src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?q=80&w=800"
+                          alt="Men Promo"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mega-content-area" id="women-content">
+                  <div class="row w-100">
+                    <div class="col-3 mega-col">
+                      <h6>مانتو و پالتو</h6>
+                      <ul>
+                        <li><a href="category.html">مانتو کتی</a></li>
+                        <li><a href="category.html">پالتو فوتر</a></li>
+                        <li><a href="category.html">بارانی</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-3 mega-col">
+                      <h6>شال و روسری</h6>
+                      <ul>
+                        <li><a href="category.html">شال نخی</a></li>
+                        <li><a href="category.html">روسری ابریشم</a></li>
+                        <li><a href="category.html">مینی اسکارف</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-6">
+                      <div class="mega-promo-card">
+                        <img
+                          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800"
+                          alt="Women Promo"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mega-content-area" id="shoes-content">
+                  <div class="row w-100">
+                    <div class="col-3 mega-col">
+                      <h6>کتونی ورزشی</h6>
+                      <ul>
+                        <li><a href="category.html">نایک Air Force</a></li>
+                        <li><a href="category.html">آدیداس Samba</a></li>
+                        <li><a href="category.html">نیوبالنس</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-6">
+                      <div class="mega-promo-card">
+                        <img
+                          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800"
+                          alt="Shoes Promo"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Accessories and Sports can follow same pattern -->
+              </div>
+            </div>
+
+            <ul class="nav desktop-nav">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link text-dark">صفحه اصلی</a>
+              </li>
+              <li class="nav-item">
+                <a href="category.html" class="nav-link text-dark"
+                  >جدیدترین‌ها</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="category.html" class="nav-link text-dark"
+                  >تخفیف دارها</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link text-dark">تماس با ما</a>
+              </li>
+            </ul>
+            <a href="#" class="btn btn-sm btn-outline-secondary px-3"
+              >پیگیری سفارش</a
+            >
+          </div>
+        </div>
+      </nav>
+
+      <!-- Custom Circular Mobile Menu Overlay -->
+      <div class="mobile">
+        <div class="circular-menu-overlay" id="customMobileMenu">
+          <button class="menu-close-btn" id="closeMenuTrigger">
+            <i data-lucide="x"></i>
+          </button>
+          <div class="menu-content">
+            <ul class="nav flex-column align-items-center gap-4">
+              <li class="nav-item">
+                <a href="index.html" class="menu-link"> صفحه اصلی</a>
+              </li>
+              <li class="nav-item">
+                <a href="category.html" class="menu-link">دسته‌بندی‌ها</a>
+              </li>
+              <li class="nav-item">
+                <a href="category.html" class="menu-link">جدیدترین‌ها</a>
+              </li>
+              <li class="nav-item">
+                <a href="cart.html" class="menu-link"> سبد خرید</a>
+              </li>
+              <li class="nav-item">
+                <a href="login.html" class="menu-link"> حساب کاربری</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="menu-link"> تماس با ما</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <main>
+        <!-- Hero Section: Main Slider + Countdown -->
+        <section class="container hero-section reveal">
+          <div class="row g-4">
+            <div class="col-lg-9">
+              <div class="swiper mainHeroSwiper main-hero-swiper shadow-sm">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img
+                      src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200"
+                      alt="Slider 1"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?q=80&w=1200"
+                      alt="Slider 2"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200"
+                      alt="Slider 3"
+                    />
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="swiper specialOffers h-100">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="special-deal-card shadow-sm h-100">
+                      <div class="deal-tag text-center">
+                        <span class="progress-line"></span> پیشنهاد ویژه روز
+                      </div>
+                      <div class="img-container">
+                        <img
+                          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400"
+                          alt="Special Product"
+                        />
+                      </div>
+                      <div class="countdown-timer-box text-center">
+                        <div class="small text-muted mb-2">زمان باقی‌مانده</div>
+                        <div
+                          id="mainCountdown"
+                          class="countdown-display"
+                          data-count-down="1405-2-01 23:59:59"
+                        >
+                          ۰۰۰۰-۰۰-۰۰ ۰۰:۰۰:۰۰
+                        </div>
+                      </div>
+                      <div
+                        class="p-3 flex-grow-1 d-flex flex-column justify-content-between"
+                      >
+                        <div>
+                          <h6 class="fw-bold mb-1">ساعت هوشمند مدل Pro 2025</h6>
+                          <div class="text-muted small mb-2">موجودی محدود</div>
+                        </div>
+                        <div
+                          class="d-flex align-items-center justify-content-between"
+                        >
+                          <div class="text-danger fw-bold">
+                            ۱,۸۵۰,۰۰۰ <small>تومان</small>
+                          </div>
+                          <div
+                            class="text-muted small text-decoration-line-through"
+                          >
+                            ۲,۴۰۰,۰۰۰
+                          </div>
+                        </div>
+                        <button class="btn btn-dark w-100 mt-3 py-2 btn-gold">
+                          مشاهده و خرید
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="special-deal-card shadow-sm h-100">
+                      <div class="deal-tag text-center">
+                        <span class="progress-line"></span> پیشنهاد ویژه روز
+                      </div>
+                      <div class="img-container">
+                        <img
+                          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400"
+                          alt="Special Product"
+                        />
+                      </div>
+                      <div class="countdown-timer-box text-center">
+                        <div class="small text-muted mb-2">زمان باقی‌مانده</div>
+                        <div
+                          id="mainCountdown"
+                          class="countdown-display"
+                          data-count-down="1404-12-01 23:59:59"
+                        >
+                          ۰۰۰۰-۰۰-۰۰ ۰۰:۰۰:۰۰
+                        </div>
+                      </div>
+                      <div
+                        class="p-3 flex-grow-1 d-flex flex-column justify-content-between"
+                      >
+                        <div>
+                          <h6 class="fw-bold mb-1">ساعت هوشمند مدل Pro 2025</h6>
+                          <div class="text-muted small mb-2">موجودی محدود</div>
+                        </div>
+                        <div
+                          class="d-flex align-items-center justify-content-between"
+                        >
+                          <div class="text-danger fw-bold">
+                            ۱,۸۵۰,۰۰۰ <small>تومان</small>
+                          </div>
+                          <div
+                            class="text-muted small text-decoration-line-through"
+                          >
+                            ۲,۴۰۰,۰۰۰
+                          </div>
+                        </div>
+                        <button class="btn btn-dark w-100 mt-3 py-2 btn-gold">
+                          مشاهده و خرید
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="special-deal-card shadow-sm h-100">
+                      <div class="deal-tag text-center">
+                        <span class="progress-line"></span> پیشنهاد ویژه روز
+                      </div>
+                      <div class="img-container">
+                        <img
+                          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400"
+                          alt="Special Product"
+                        />
+                      </div>
+                      <div class="countdown-timer-box text-center">
+                        <div class="small text-muted mb-2">زمان باقی‌مانده</div>
+                        <div
+                          id="mainCountdown"
+                          class="countdown countdown-display"
+                          data-count-down="1405-1-01 23:10:59"
+                        >
+                          ۰۰۰۰-۰۰-۰۰ ۰۰:۰۰:۰۰
+                        </div>
+                      </div>
+                      <div
+                        class="p-3 flex-grow-1 d-flex flex-column justify-content-between"
+                      >
+                        <div>
+                          <h6 class="fw-bold mb-1">ساعت هوشمند مدل Pro 2025</h6>
+                          <div class="text-muted small mb-2">موجودی محدود</div>
+                        </div>
+                        <div
+                          class="d-flex align-items-center justify-content-between"
+                        >
+                          <div class="text-danger fw-bold">
+                            ۱,۸۵۰,۰۰۰ <small>تومان</small>
+                          </div>
+                          <div
+                            class="text-muted small text-decoration-line-through"
+                          >
+                            ۲,۴۰۰,۰۰۰
+                          </div>
+                        </div>
+                        <button class="btn btn-dark w-100 mt-3 py-2 btn-gold">
+                          مشاهده و خرید
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="special-deal-card shadow-sm h-100">
+                      <div class="deal-tag text-center">پیشنهاد ویژه روز</div>
+                      <div class="img-container">
+                        <img
+                          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400"
+                          alt="Special Product"
+                        />
+                      </div>
+                      <div class="countdown-timer-box text-center">
+                        <div class="small text-muted mb-2">زمان باقی‌مانده</div>
+                        <div
+                          id="mainCountdown"
+                          class="countdown-display"
+                          data-count-down="1405-06-01 23:59:59"
+                        >
+                          ۰۰۰۰-۰۰-۰۰ ۰۰:۰۰:۰۰
+                        </div>
+                      </div>
+                      <div
+                        class="p-3 flex-grow-1 d-flex flex-column justify-content-between"
+                      >
+                        <div>
+                          <h6 class="fw-bold mb-1">ساعت هوشمند مدل Pro 2025</h6>
+                          <div class="text-muted small mb-2">موجودی محدود</div>
+                        </div>
+                        <div
+                          class="d-flex align-items-center justify-content-between"
+                        >
+                          <div class="text-danger fw-bold">
+                            ۱,۸۵۰,۰۰۰ <small>تومان</small>
+                          </div>
+                          <div
+                            class="text-muted small text-decoration-line-through"
+                          >
+                            ۲,۴۰۰,۰۰۰
+                          </div>
+                        </div>
+                        <button class="btn btn-dark w-100 mt-3 py-2 btn-gold">
+                          مشاهده و خرید
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Amazing Discounts Section -->
+        <section class="container mt-5">
+          <div class="reveal">
+            <h3 class="section-title">پر فروش ترین ها</h3>
+          </div>
+
+          <div class="swiper discountSwiper mb-5 reveal delay-100">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="product-card">
+                  <div class="product-img-container">
+                    <img
+                      src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=400"
+                      class="img-primary"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=401"
+                      class="img-secondary"
+                    />
+                    <div class="variation-sheet">
+                      <div class="size-chips">
+                        <span class="size-chip">S</span
+                        ><span class="size-chip">M</span
+                        ><span class="size-chip">L</span>
+                      </div>
+                      <button class="btn btn-success btn-sm w-100 mt-3 py-2">
+                        خرید سریع
+                      </button>
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <div class="product-title">T-SHIRT KIT 2025</div>
+                    <div class="product-price text-danger">
+                      410,550 <small>تومان</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="product-card">
+                  <div class="product-img-container">
+                    <img
+                      src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=400"
+                      class="img-primary"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=401"
+                      class="img-secondary"
+                    />
+                    <div class="variation-sheet">
+                      <div class="size-chips">
+                        <span class="size-chip">M</span
+                        ><span class="size-chip">L</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <div class="product-title">T-SHIRT SUBCRUDE</div>
+                    <div class="product-price text-danger">
+                      687,930 <small>تومان</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="product-card">
+                  <div class="product-img-container">
+                    <img
+                      src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=400"
+                      class="img-primary"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=401"
+                      class="img-secondary"
+                    />
+                    <div class="variation-sheet">
+                      <div class="size-chips">
+                        <span class="size-chip">L</span
+                        ><span class="size-chip">XL</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <div class="product-title">CALIFORNIA یقه دار</div>
+                    <div class="product-price text-danger">
+                      445,050 <small>تومان</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </section>
+
+        <!-- Interactive 3D Parallax Tilt Banner -->
+        <section class="container mt-5 reveal">
+          <div class="tilt-container-wrapper">
+            <div class="tilt-banner-card shadow-lg" id="parallaxBanner">
+              <div
+                class="tilt-banner-bg"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=1400&quot;);
+                "
+              ></div>
+              <div class="tilt-banner-overlay"></div>
+              <div class="tilt-glare"></div>
+              <div class="tilt-content p-3 p-md-5">
+                <div class="tilt-badge">ARKA DESIGN PREMIUM</div>
+                <h2 class="display-4 fw-black mt-3">مجموعه زمستانه ۲۰۲۵</h2>
+                <p class="lead mb-4">
+                  ترکیبی از اصالت و طراحی مدرن برای خاص‌پسندان
+                </p>
+                <a href="category.html" class="btn btn-gold btn-lg px-5 py-3"
+                  >مشاهده کلکسیون جدید</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Most Popular Section -->
+        <section class="container mt-5">
+          <div class="reveal">
+            <h3 class="section-title popular">محبوب ترین ها</h3>
+          </div>
+
+          <div class="swiper popularSwiper mb-5 reveal delay-200">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="product-card">
+                  <div class="product-img-container">
+                    <img
+                      src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400"
+                      class="img-primary"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=401"
+                      class="img-secondary"
+                    />
+                  </div>
+                  <div class="p-3">
+                    <div class="product-title">کتونی ناییک M V2K</div>
+                    <div class="product-price">
+                      3,380,000 <small>تومان</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="product-card">
+                  <div class="product-img-container">
+                    <img
+                      src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=400"
+                      class="img-primary"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=401"
+                      class="img-secondary"
+                    />
+                  </div>
+                  <div class="p-3">
+                    <div class="product-title">هودی سگستور VG</div>
+                    <div class="product-price">
+                      1,390,000 <small>تومان</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="container category-wrapper">
+          <div class="my-5">
+            <div class="reveal">
+              <h3 class="section-title popular">دسته بندی های ما</h3>
+            </div>
+
+            <div class="swiper categoriesSwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <!-- Slide 1 -->
+                  <a href="#" class="flip-card">
+                    <div class="flip-card-inner">
+                      <div
+                        class="flip-card-front"
+                        style="
+                          background-image: url(&quot;https://images.unsplash.com/photo-1722357533653-7eb00f7f243d?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;);
+                        "
+                      >
+                        <div class="overlay">
+                          <img
+                            src="https://images.unsplash.com/photo-1768527340501-bfb1742d8e40?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Logo"
+                            class="card-logo"
+                          />
+                          <h3 class="card-title">Card Title 1</h3>
+                        </div>
+                      </div>
+                      <div class="flip-card-back">
+                        <p>Extra info about Card 1</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <!-- Slide 2 -->
+                  <a href="#" class="flip-card">
+                    <div class="flip-card-inner">
+                      <div
+                        class="flip-card-front"
+                        style="
+                          background-image: url(&quot;https://images.unsplash.com/photo-1722357533644-9b20e356ba5f?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;);
+                        "
+                      >
+                        <div class="overlay">
+                          <img
+                            src="https://images.unsplash.com/photo-1768527340501-bfb1742d8e40?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Logo"
+                            class="card-logo"
+                          />
+                          <h3 class="card-title">Card Title 2</h3>
+                        </div>
+                      </div>
+                      <div class="flip-card-back">
+                        <p>Extra info about Card 2</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <!-- Slide 3 -->
+                  <a href="#" class="flip-card">
+                    <div class="flip-card-inner">
+                      <div
+                        class="flip-card-front"
+                        style="
+                          background-image: url(&quot;https://images.unsplash.com/photo-1768687983413-adacbda44369?q=80&w=539&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;);
+                        "
+                      >
+                        <div class="overlay">
+                          <img
+                            src="https://images.unsplash.com/photo-1768527340501-bfb1742d8e40?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Logo"
+                            class="card-logo"
+                          />
+                          <h3 class="card-title">Card Title 3</h3>
+                        </div>
+                      </div>
+                      <div class="flip-card-back">
+                        <p>Extra info about Card 3</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <!-- Slide 4 -->
+                  <a href="#" class="flip-card">
+                    <div class="flip-card-inner">
+                      <div
+                        class="flip-card-front"
+                        style="
+                          background-image: url(&quot;https://plus.unsplash.com/premium_photo-1683120951444-3128a958c0c6?q=80&w=622&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;);
+                        "
+                      >
+                        <div class="overlay">
+                          <img
+                            src="https://images.unsplash.com/photo-1768527340501-bfb1742d8e40?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Logo"
+                            class="card-logo"
+                          />
+                          <h3 class="card-title">Card Title 4</h3>
+                        </div>
+                      </div>
+                      <div class="flip-card-back">
+                        <p>Extra info about Card 4</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <!-- Slide 5 -->
+                  <a href="#" class="flip-card">
+                    <div class="flip-card-inner">
+                      <div
+                        class="flip-card-front"
+                        style="
+                          background-image: url(&quot;https://images.unsplash.com/photo-1729854193151-79127a0f5f32?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;);
+                        "
+                      >
+                        <div class="overlay">
+                          <img
+                            src="https://images.unsplash.com/photo-1768527340501-bfb1742d8e40?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Logo"
+                            class="card-logo"
+                          />
+                          <h3 class="card-title">Card Title 5</h3>
+                        </div>
+                      </div>
+                      <div class="flip-card-back">
+                        <h3 class="card-title fade-in-top">Card Title 5</h3>
+                        <p class="fade-in-bottom">120 محصول</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Product Grid -->
+        <section class="store-front reveal mt-5">
+          <img
+            class="store-front-abstract"
+            src="./assets/images/footer-abstract.jpg"
+            alt=""
+          />
+          <div class="container">
+            <div class="reveal">
+              <h3 class="section-title popular">ویترین محصولات</h3>
+            </div>
+
+            <div class="store-front-content row g-4">
+              <div class="col-lg-4 col-md-6 col-6 reveal">
+                <div class="product-card">
+                  <div class="product-img-container">
+                    <img
+                      src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600"
+                      class="img-primary"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=601"
+                      class="img-secondary"
+                    />
+                    <div class="variation-sheet">
+                      <div class="size-chips">
+                        <span class="size-chip">32</span
+                        ><span class="size-chip">34</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <div class="product-title">اسلش بگ 3118</div>
+                    <div class="product-price">
+                      997,000 <small>تومان</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-6 reveal delay-100">
+                <div class="product-card">
+                  <div class="product-img-container">
+                    <img
+                      src="https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=600"
+                      class="img-primary"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=601"
+                      class="img-secondary"
+                    />
+                  </div>
+                  <div class="p-3">
+                    <div class="product-title">BAG 7037 PN12</div>
+                    <div class="product-price">
+                      1,390,000 <small>تومان</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-6 reveal delay-200">
+                <div class="product-card">
+                  <div class="product-img-container">
+                    <img
+                      src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600"
+                      class="img-primary"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=601"
+                      class="img-secondary"
+                    />
+                  </div>
+                  <div class="p-3">
+                    <div class="product-title">دورس NF3</div>
+                    <div class="product-price">
+                      790,000 <small>تومان</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer bg-light reveal pt-5">
+        <div class="container">
+          <div class="row gy-5">
+            <!-- Brand & Mission Column -->
+            <div class="col-lg-4 col-md-6">
+              <div class="footer-logo mb-3 w-75 h-auto mx-auto">
+                <a href="index.html" class="footer-logo w-100 h-100">
+                  <img
+                    src="./assets/images/Arka--Logo.png"
+                    class="w-100 h-100"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <!-- Categories Column -->
+            <div class="col-lg-2 col-6">
+              <h6 class="fw-bold mb-4">دسته‌بندی‌های محصولات</h6>
+              <ul class="list-unstyled d-flex flex-column gap-2 small">
+                <li>
+                  <a
+                    href="category.html"
+                    class="text-muted hover-text-primary transition-all"
+                    >پوشاک آقایان</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="category.html"
+                    class="text-muted hover-text-primary transition-all"
+                    >پوشاک بانوان</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="category.html"
+                    class="text-muted hover-text-primary transition-all"
+                    >کفش و کتونی</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="category.html"
+                    class="text-muted hover-text-primary transition-all"
+                    >اکسسوری و زیورآلات</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="category.html"
+                    class="text-muted hover-text-primary transition-all"
+                    >پوشاک ورزشی</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Support Column -->
+            <div class="col-lg-2 col-6">
+              <h6 class="fw-bold mb-4">خدمات مشتریان</h6>
+              <ul class="list-unstyled d-flex flex-column gap-2 small">
+                <li>
+                  <a
+                    href="#"
+                    class="text-muted hover-text-primary transition-all"
+                    >پرسش‌های متداول</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-muted hover-text-primary transition-all"
+                    >رویه‌های بازگرداندن کالا</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-muted hover-text-primary transition-all"
+                    >شرایط استفاده و حریم خصوصی</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-muted hover-text-primary transition-all"
+                    >درباره ما</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-muted hover-text-primary transition-all"
+                    >تماس با ما</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Contact & Newsletter Column -->
+            <div class="col-lg-4 col-md-12">
+              <h6 class="fw-bold mb-4">ارتباط با ما</h6>
+              <div class="small text-muted d-flex flex-column gap-3 mb-4">
+                <div class="d-flex align-items-start gap-2">
+                  <i class="bi bi-geo-alt text-dark mt-1"></i>
+                  <span
+                    >پاکدشت مامازند، خیابان ولیعصر، خیابان علامه، پلاک ۳۱</span
+                  >
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-telephone text-dark"></i>
+                  <span>تلفن: ۰۲۱-۱۲۳۴۵۶۷۸</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-envelope text-dark"></i>
+                  <span>ایمیل: info@vegas.example</span>
+                </div>
+                <div class="d-flex gap-3 social-links">
+                  <a
+                    href="#"
+                    class="text-dark fs-4 transition-all opacity-75 hover-opacity-100"
+                    ><i class="bi bi-instagram"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="text-dark fs-4 transition-all opacity-75 hover-opacity-100"
+                    ><i class="bi bi-telegram"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="text-dark fs-4 transition-all opacity-75 hover-opacity-100"
+                    ><i class="bi bi-whatsapp"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="text-dark fs-4 transition-all opacity-75 hover-opacity-100"
+                    ><i class="bi bi-twitter-x"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Footer -->
+          <div class="row mt-3 pt-3 border-top">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              <p class="text-muted small mb-0">
+                © ۲۰۲۶ تمامی حقوق برای فروشگاه
+                <span class="fw-bold text-dark">ARKA DESIGN</span> محفوظ است.
+              </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <div
+                class="payment-badges d-flex justify-content-center justify-content-md-end gap-3 opacity-50"
+              >
+                <p>
+                  طراحی و توسعه
+                  <a class="text-black" href="avatarweb.net">آواتار وب</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="assets/js/bootstrap.boundle.js"></script>
+    <script src="assets/js/lucide.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/jalaali.min.js"></script>
+    <script src="assets/js/headroom.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/index.js"></script>
+  </body>
+</html>

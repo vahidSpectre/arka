@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>فهرست محصولات - ARKA DESIGN</title>
+    <link href="assets/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/product.css" />
+    <link rel="stylesheet" href="assets/css/range.css" />
+  </head>
+  <body>
+    <!-- Header (from index.html) -->
+    <header class="header-top">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-3 col-6 d-flex align-items-center gap-3">
+            <div
+              class="mobile-toggle"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#mobileMenu"
+            >
+              <i class="bi bi-list"></i>
+            </div>
+            <a href="index.html" class="logo">ARKA DESIGN</a>
+          </div>
+          <div class="col-lg-6 col-12 search-col">
+            <div class="search-bar">
+              <i class="bi bi-search text-muted"></i>
+              <input type="text" placeholder="جستجوی لباس، کفش و اکسسوری..." />
+            </div>
+          </div>
+          <div class="col-lg-3 col-6 text-start">
+            <div
+              class="d-flex align-items-center justify-content-end gap-3 gap-md-4"
+            >
+              <a
+                href="#"
+                class="text-decoration-none text-dark d-none d-md-block"
+              >
+                <i class="bi bi-person fs-5 ms-1"></i> حساب کاربری
+              </a>
+              <div class="position-relative cursor-pointer">
+                <i class="bi bi-cart3 fs-3"></i>
+                <span
+                  class="badge-cart"
+                  style="
+                    background: var(--main-color-one);
+                    color: white;
+                    border-radius: 50%;
+                    padding: 2px 6px;
+                    font-size: 0.7rem;
+                    position: absolute;
+                    top: -5px;
+                    right: -10px;
+                  "
+                  >2</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Side Menu (copied from index.html) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-bold text-success">منوی اصلی</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link text-dark"
+              ><i class="bi bi-house ms-2"></i>صفحه اصلی</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="category.html" class="nav-link text-dark"
+              ><i class="bi bi-grid ms-2"></i>دسته‌بندی‌ها</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <main class="container">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <div class="d-flex align-items-center gap-2">
+          <a href="index.html" class="text-decoration-none text-muted"
+            ><i class="bi bi-house fs-5"></i
+          ></a>
+          <span class="text-muted">/</span>
+          <strong>فهرست محصولات</strong>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 d-none d-lg-block">
+          <aside class="filters position-sticky top-0 mt-2">
+            <div class="accordion" id="filtersAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingCat">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseCat"
+                    aria-expanded="true"
+                    aria-controls="collapseCat"
+                  >
+                    دسته‌بندی
+                  </button>
+                </h2>
+                <div
+                  id="collapseCat"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingCat"
+                  data-bs-parent="#filtersAccordion"
+                >
+                  <div class="accordion-body">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="cat1"
+                      />
+                      <label class="form-check-label" for="cat1">لباس</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="cat2"
+                      />
+                      <label class="form-check-label" for="cat2">کفش</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="cat3"
+                      />
+                      <label class="form-check-label" for="cat3">اکسسوری</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingPrice">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsePrice"
+                    aria-expanded="true"
+                    aria-controls="collapsePrice"
+                  >
+                    محدوده قیمت
+                  </button>
+                </h2>
+                <div
+                  id="collapsePrice"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingPrice"
+                  data-bs-parent="#filtersAccordion"
+                >
+                  <div class="accordion-body">
+                    <div class="price-input-container">
+                      <div class="price-field">
+                        <label>از</label>
+                        <input
+                          type="number"
+                          id="desktopMinPrice"
+                          placeholder="حداقل"
+                        />
+                      </div>
+                      <div class="price-field">
+                        <label>تا</label>
+                        <input
+                          type="number"
+                          id="desktopMaxPrice"
+                          placeholder="حداکثر"
+                        />
+                      </div>
+                    </div>
+                    <div id="desktopSlider" class="range-slider"></div>
+                    <div class="slider-badge-container">
+                      <span class="slider-badge">ارزان‌ترین</span>
+                      <span class="slider-badge">گران‌ترین</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSize">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseSize"
+                    aria-expanded="false"
+                    aria-controls="collapseSize"
+                  >
+                    سایز
+                  </button>
+                </h2>
+                <div
+                  id="collapseSize"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingSize"
+                  data-bs-parent="#filtersAccordion"
+                >
+                  <div class="accordion-body">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="sizeS"
+                      />
+                      <label class="form-check-label" for="sizeS">S</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="sizeM"
+                      />
+                      <label class="form-check-label" for="sizeM">M</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="sizeL"
+                      />
+                      <label class="form-check-label" for="sizeL">L</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingColor">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseColor"
+                    aria-expanded="false"
+                    aria-controls="collapseColor"
+                  >
+                    رنگ
+                  </button>
+                </h2>
+                <div
+                  id="collapseColor"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingColor"
+                  data-bs-parent="#filtersAccordion"
+                >
+                  <div
+                    class="accordion-body d-flex flex-column justify-content-start gap-2 align-items-start"
+                  >
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="colBlack"
+                      />
+                      <label class="form-check-label" for="colBlack"
+                        >مشکی</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="colPurple"
+                      />
+                      <label class="form-check-label" for="colPurple"
+                        >بنفش</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="colOrange"
+                      />
+                      <label class="form-check-label" for="colOrange"
+                        >نارنجی</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingBrand">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseBrand"
+                    aria-expanded="false"
+                    aria-controls="collapseBrand"
+                  >
+                    برند
+                  </button>
+                </h2>
+                <div
+                  id="collapseBrand"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingBrand"
+                  data-bs-parent="#filtersAccordion"
+                >
+                  <div class="accordion-body">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="brand1"
+                      />
+                      <label class="form-check-label" for="brand1"
+                        >برند A</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="brand2"
+                      />
+                      <label class="form-check-label" for="brand2"
+                        >برند B</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="col-lg-9">
+          <div class="topbar">
+            <div class="d-flex align-items-center gap-2">
+              <button
+                class="btn btn-outline-secondary btn-sm d-lg-none"
+                id="openMobileFilters"
+              >
+                <i class="bi bi-sliders ms-1"></i> فیلترها
+              </button>
+              <div class="text-muted small">نمایش 1-12 از 120</div>
+            </div>
+            <div>
+              <select
+                class="form-select form-select-sm sort-select"
+                id="sortSelect"
+              >
+                <option value="popular">مرتب‌سازی: محبوب‌ترین</option>
+                <option value="new">جدیدترین</option>
+                <option value="price_asc">قیمت: کم به زیاد</option>
+                <option value="price_desc">قیمت: زیاد به کم</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Products grid -->
+          <div id="productsGrid" class="products-grid">
+            <div>
+              <div class="product-card">
+                <div class="product-img-container">
+                  <img
+                    src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600"
+                    class="img-primary"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=601"
+                    class="img-secondary"
+                  />
+                  <div class="variation-sheet">
+                    <div class="d-flex flex-wrap justify-content-center">
+                      <span class="size-chip">S</span>
+                      <span class="size-chip">M</span>
+                      <span class="size-chip">L</span>
+                    </div>
+                    <button class="btn btn-success btn-sm w-100 mt-3">
+                      خرید سریع
+                    </button>
+                  </div>
+                </div>
+                <div class="p-3">
+                  <div class="product-title">T-SHIRT KIT 2025</div>
+                  <div class="product-price text-danger">
+                    410,550 <small>تومان</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="product-card">
+                <div class="product-img-container">
+                  <img
+                    src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=600"
+                    class="img-primary"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=601"
+                    class="img-secondary"
+                  />
+                  <div class="variation-sheet">
+                    <div class="d-flex flex-wrap justify-content-center">
+                      <span class="size-chip">M</span>
+                      <span class="size-chip">L</span>
+                    </div>
+                    <button class="btn btn-success btn-sm w-100 mt-3">
+                      خرید سریع
+                    </button>
+                  </div>
+                </div>
+                <div class="p-3">
+                  <div class="product-title">T-SHIRT SUBCRUDE</div>
+                  <div class="product-price text-danger">
+                    687,930 <small>تومان</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="product-card">
+                <div class="product-img-container">
+                  <img
+                    src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600"
+                    class="img-primary"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=601"
+                    class="img-secondary"
+                  />
+                  <div class="variation-sheet">
+                    <div class="d-flex flex-wrap justify-content-center">
+                      <span class="size-chip">L</span>
+                      <span class="size-chip">XL</span>
+                    </div>
+                    <button class="btn btn-success btn-sm w-100 mt-3">
+                      خرید سریع
+                    </button>
+                  </div>
+                </div>
+                <div class="p-3">
+                  <div class="product-title">CALIFORNIA یقه دار</div>
+                  <div class="product-price text-danger">
+                    445,050 <small>تومان</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="product-card">
+                <div class="product-img-container">
+                  <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600"
+                    class="img-primary"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=601"
+                    class="img-secondary"
+                  />
+                </div>
+                <div class="p-3">
+                  <div class="product-title">کتونی ناییک M V2K</div>
+                  <div class="product-price">
+                    3,380,000 <small>تومان</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="product-card">
+                <div class="product-img-container">
+                  <img
+                    src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600"
+                    class="img-primary"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=601"
+                    class="img-secondary"
+                  />
+                </div>
+                <div class="p-3">
+                  <div class="product-title">هودی سگستور VG</div>
+                  <div class="product-price">
+                    1,390,000 <small>تومان</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="product-card">
+                <div class="product-img-container">
+                  <img
+                    src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600"
+                    class="img-primary"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=601"
+                    class="img-secondary"
+                  />
+                </div>
+                <div class="p-3">
+                  <div class="product-title">اسلش بگ 3118</div>
+                  <div class="product-price">997,000 <small>تومان</small></div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="product-card">
+                <div class="product-img-container">
+                  <img
+                    src="https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=600"
+                    class="img-primary"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=601"
+                    class="img-secondary"
+                  />
+                </div>
+                <div class="p-3">
+                  <div class="product-title">BAG 7037 PN12</div>
+                  <div class="product-price">
+                    1,390,000 <small>تومان</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="product-card">
+                <div class="product-img-container">
+                  <img
+                    src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600"
+                    class="img-primary"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=601"
+                    class="img-secondary"
+                  />
+                </div>
+                <div class="p-3">
+                  <div class="product-title">دورس NF3</div>
+                  <div class="product-price">790,000 <small>تومان</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer
+      class="footer"
+      style="
+        background: #f8f9fa;
+        border-top: 1px solid #eee;
+        padding: 60px 0;
+        margin-top: 40px;
+      "
+    >
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="logo mb-3"
+              style="
+                font-weight: 900;
+                color: var(--main-color-one);
+                font-size: 1.6rem;
+              "
+            >
+              ARKA DESIGN
+            </div>
+            <p class="text-muted small">
+              فروشگاه آنلاین وگاس. برترین کیفیت پوشاک با مناسب‌ترین قیمت.
+            </p>
+            <p class="small text-muted mb-1">تلفن: 021-12345678</p>
+            <p class="small text-muted">ایمیل: info@vegas.example</p>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h6 class="fw-bold mb-3">خرید</h6>
+            <ul class="list-unstyled small">
+              <li>
+                <a href="#" class="text-decoration-none text-muted"
+                  >جدیدترین‌ها</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-muted"
+                  >پرفروش‌ها</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-muted">تخفیف‌ها</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h6 class="fw-bold mb-3">خدمات مشتریان</h6>
+            <ul class="list-unstyled small">
+              <li>
+                <a href="#" class="text-decoration-none text-muted"
+                  >پرسش‌های متداول</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-muted"
+                  >شیوه‌های پرداخت</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-muted"
+                  >حریم خصوصی</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <h6 class="fw-bold mb-3">خبرنامه</h6>
+            <p class="small text-muted">
+              برای دریافت جدیدترین تخفیف‌ها ایمیل خود را وارد کنید.
+            </p>
+            <div class="d-flex gap-2">
+              <input
+                class="form-control form-control-sm"
+                placeholder="ایمیل شما"
+              />
+              <button class="btn btn-success btn-sm">عضویت</button>
+            </div>
+            <div class="mt-3">
+              <a href="#" class="me-2"
+                ><i class="bi bi-instagram" style="font-size: 1.2rem"></i
+              ></a>
+              <a href="#" class="me-2"
+                ><i class="bi bi-telegram" style="font-size: 1.2rem"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-12 text-center text-muted small">
+            © 2026 ARKA DESIGN — تمامی حقوق محفوظ است.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modern Filters Modal -->
+    <div class="filters-modal" id="filtersModal">
+      <div class="filters-modal-content">
+        <!-- Modal Header -->
+        <div class="filters-modal-header">
+          <h2 class="filters-modal-title">فیلترها</h2>
+          <button class="filters-modal-close" id="closeFiltersBtn">✕</button>
+        </div>
+
+        <!-- Scrollable Filter Groups -->
+        <div class="filters-scroll-container">
+          <!-- Category Filter -->
+          <div class="filter-group-simple">
+            <h5 class="filter-group-title-simple">دسته‌بندی</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="m-cat1" />
+              <label class="form-check-label" for="m-cat1">لباس</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="m-cat2" />
+              <label class="form-check-label" for="m-cat2">کفش</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="m-cat3" />
+              <label class="form-check-label" for="m-cat3">اکسسوری</label>
+            </div>
+          </div>
+
+          <!-- Price Filter -->
+          <div class="filter-group-simple">
+            <h5 class="filter-group-title-simple">محدوده قیمت</h5>
+            <div class="price-input-container">
+              <div class="price-field">
+                <label>از</label>
+                <input type="number" id="mobileMinPrice" placeholder="حداقل" />
+              </div>
+              <div class="price-field">
+                <label>تا</label>
+                <input type="number" id="mobileMaxPrice" placeholder="حداکثر" />
+              </div>
+            </div>
+            <div id="mobileSlider" class="range-slider"></div>
+            <div class="slider-badge-container">
+              <span class="slider-badge">ارزان‌ترین</span>
+              <span class="slider-badge">گران‌ترین</span>
+            </div>
+          </div>
+
+          <!-- Size Filter -->
+          <div class="filter-group-simple">
+            <h5 class="filter-group-title-simple">سایز</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="m-sizeS" />
+              <label class="form-check-label" for="m-sizeS">S</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="m-sizeM" />
+              <label class="form-check-label" for="m-sizeM">M</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="m-sizeL" />
+              <label class="form-check-label" for="m-sizeL">L</label>
+            </div>
+          </div>
+
+          <!-- Color Filter -->
+          <div class="filter-group-simple">
+            <h5 class="filter-group-title-simple">رنگ</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="m-colBlack" />
+              <label class="form-check-label" for="m-colBlack">مشکی</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="m-colPurple"
+              />
+              <label class="form-check-label" for="m-colPurple">بنفش</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="m-colOrange"
+              />
+              <label class="form-check-label" for="m-colOrange">نارنجی</label>
+            </div>
+          </div>
+
+          <!-- Brand Filter -->
+          <div class="filter-group-simple">
+            <h5 class="filter-group-title-simple">برند</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="m-brand1" />
+              <label class="form-check-label" for="m-brand1">برند A</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="m-brand2" />
+              <label class="form-check-label" for="m-brand2">برند B</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Footer with Buttons -->
+        <div class="filters-modal-footer">
+          <button class="btn-reset-filters" id="resetFiltersBtn">
+            بازنشانی
+          </button>
+          <button class="btn-apply-filters" id="applyFiltersBtn">
+            اعمال فیلترها
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- External Scripts (Assuming range.js contains the range-slider-input library) -->
+    <script src="assets/js/bootstrap.boundle.js"></script>
+    <script src="assets/js/range.js"></script>
+    <script>
+      // DOM Elements for Filtering
+      const filtersModal = document.getElementById("filtersModal");
+      const openFiltersBtn = document.getElementById("openMobileFilters");
+      const closeFiltersBtn = document.getElementById("closeFiltersBtn");
+      const resetFiltersBtn = document.getElementById("resetFiltersBtn");
+      const applyFiltersBtn = document.getElementById("applyFiltersBtn");
+      const filterCheckboxes = document.querySelectorAll(".form-check-input");
+
+      // Price Syncing Variables
+      const minPrice = 0;
+      const maxPrice = 5000000;
+      const initialValue = [200000, 3500000];
+
+      // Setup Price Slider Sync Utility
+      function setupPriceSync(sliderId, minInpId, maxInpId) {
+        const sliderEl = document.getElementById(sliderId);
+        const minInp = document.getElementById(minInpId);
+        const maxInp = document.getElementById(maxInpId);
+
+        if (!sliderEl || !minInp || !maxInp) return;
+        const slider = rangeSlider(sliderEl, {
+          min: minPrice,
+          max: maxPrice,
+          step: 50000,
+          value: initialValue,
+          rtl: true,
+          onInput: (value) => {
+            minInp.value = value[0];
+            maxInp.value = value[1];
+            console.log(value);
+          },
+        });
+
+        // Set initial input values
+        minInp.value = initialValue[0];
+        maxInp.value = initialValue[1];
+
+        // Handle Input Changes
+        const handleInpChange = () => {
+          let min = parseInt(minInp.value) || 0;
+          let max = parseInt(maxInp.value) || 0;
+
+          // Basic validation: clamp to global min/max
+          min = Math.max(minPrice, Math.min(min, max));
+          max = Math.min(maxPrice, Math.max(max, min));
+
+          slider.value([min, max]);
+        };
+
+        minInp.addEventListener("change", handleInpChange);
+        maxInp.addEventListener("change", handleInpChange);
+
+        return slider;
+      }
+
+      // Initialize both Desktop and Mobile sliders
+      const desktopSlider = setupPriceSync(
+        "desktopSlider",
+        "desktopMinPrice",
+        "desktopMaxPrice",
+      );
+      const mobileSlider = setupPriceSync(
+        "mobileSlider",
+        "mobileMinPrice",
+        "mobileMaxPrice",
+      );
+
+      // Modal Handlers
+      if (openFiltersBtn) {
+        openFiltersBtn.addEventListener("click", () => {
+          filtersModal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+      }
+
+      closeFiltersBtn.addEventListener("click", () => {
+        filtersModal.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+
+      filtersModal.addEventListener("click", (e) => {
+        if (e.target === filtersModal) {
+          filtersModal.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      });
+
+      // Reset Logic
+      resetFiltersBtn.addEventListener("click", () => {
+        filterCheckboxes.forEach((cb) => (cb.checked = false));
+        if (desktopSlider) desktopSlider.value(initialValue);
+        if (mobileSlider) mobileSlider.value(initialValue);
+
+        // Manual trigger for inputs
+        [
+          "desktopMinPrice",
+          "desktopMaxPrice",
+          "mobileMinPrice",
+          "mobileMaxPrice",
+        ].forEach((id) => {
+          const el = document.getElementById(id);
+          if (id.includes("Min")) el.value = initialValue[0];
+          else el.value = initialValue[1];
+        });
+      });
+
+      applyFiltersBtn.addEventListener("click", () => {
+        const selected = Array.from(filterCheckboxes)
+          .filter((cb) => cb.checked)
+          .map((cb) => cb.id);
+
+        console.log("Applying filters:", {
+          checkboxes: selected,
+          price: mobileSlider ? mobileSlider.value() : initialValue,
+        });
+
+        filtersModal.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+    </script>
+  </body>
+</html>

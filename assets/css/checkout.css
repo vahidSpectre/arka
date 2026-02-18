@@ -1,0 +1,93 @@
+:root {
+  --step-inactive: #ddd;
+  --step-active: var(--main-color-one);
+}
+
+/* Stepper Component */
+.checkout-progress {
+  padding: 40px 0;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 40px;
+}
+.stepper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.stepper .step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #aaa;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.stepper .step.active {
+  color: var(--main-color-one);
+  font-weight: 700;
+}
+.stepper .step.active i {
+  background: var(--main-color-one);
+  color: white;
+}
+.stepper .step i {
+  width: 24px;
+  height: 24px;
+  background: #eee;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  font-size: 0.75rem;
+}
+.stepper .line {
+  width: 60px;
+  height: 1px;
+  background: #eee;
+}
+
+/* Option Cards (Address & Payment) */
+.option-card {
+  border: 1px solid #eee;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  height: 100%;
+}
+.option-card:hover {
+  border-color: #ccc;
+}
+.option-card.selected {
+  border-color: var(--main-color-one);
+  background-color: rgba(34, 40, 49, 0.02);
+}
+.option-card .check-indicator {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: var(--main-color-one);
+  opacity: 0;
+  transition: 0.3s;
+}
+.option-card.selected .check-indicator {
+  opacity: 1;
+}
+
+/* Delivery Options */
+.delivery-card {
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.delivery-card.selected {
+  border-color: var(--main-color-one);
+  background: rgba(34, 40, 49, 0.02);
+}
+
+.extra-small {
+  font-size: 0.75rem;
+}

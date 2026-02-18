@@ -1,0 +1,72 @@
+.icon-box {
+  width: 50px;
+  height: 50px;
+  background-color: var(--main-color-three);
+  color: var(--main-color-one);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-box i {
+  width: 24px;
+  height: 24px;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 250px;
+  background: #eee;
+}
+
+.map-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grayscale {
+  filter: grayscale(1);
+  transition: filter 0.5s ease;
+}
+
+.grayscale:hover {
+  filter: grayscale(0);
+}
+
+.form-label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+/* Validation styles match auth.js */
+.input-error-border {
+  border-color: #e74c3c !important;
+}
+
+.input-tooltip-error {
+  position: absolute;
+  right: 20px;
+  top: -30px;
+  background: #fff;
+  color: #e74c3c;
+  font-size: 11px;
+  padding: 4px 10px;
+  border: 1px solid #e74c3c;
+  border-radius: 6px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.input-tooltip-arrow {
+  position: absolute;
+  bottom: -6px;
+  right: 15px;
+  width: 0; height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #e74c3c;
+}

@@ -1,0 +1,87 @@
+/* Range Slider Base Styles */
+.range-slider {
+  height: 6px;
+  background: #e9ecef;
+  border-radius: 10px;
+  position: relative;
+  margin: 10px 10px 15px 10px;
+}
+
+.range-slider .range-slider__thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--main-color-one);
+  border: 2px solid #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.range-slider .range-slider__range {
+  background: var(--main-color-one);
+  height: 100%;
+}
+
+/* Price Input Container Styles */
+.price-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.price-field {
+  flex: 1;
+}
+
+.price-field label {
+  font-size: 11px;
+  color: #888;
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 400;
+}
+
+.price-field input {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 13px;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.price-field input:focus {
+  border-color: var(--main-color-one);
+}
+
+/* Hide arrow/spinners for number inputs */
+.price-field input::-webkit-outer-spin-button,
+.price-field input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.price-field input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Slider Badges */
+.slider-badge-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.slider-badge {
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #f8f9fa;
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+  font-weight: 500;
+}
