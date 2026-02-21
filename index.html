@@ -272,27 +272,162 @@
           <button class="menu-close-btn" id="closeMenuTrigger">
             <i data-lucide="x"></i>
           </button>
-          <div class="menu-content">
-            <ul class="nav flex-column align-items-center gap-4">
-              <li class="nav-item">
-                <a href="index.html" class="menu-link"> صفحه اصلی</a>
-              </li>
-              <li class="nav-item">
-                <a href="category.html" class="menu-link">دسته‌بندی‌ها</a>
-              </li>
-              <li class="nav-item">
-                <a href="category.html" class="menu-link">جدیدترین‌ها</a>
-              </li>
-              <li class="nav-item">
-                <a href="cart.html" class="menu-link"> سبد خرید</a>
-              </li>
-              <li class="nav-item">
-                <a href="login.html" class="menu-link"> حساب کاربری</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="menu-link"> تماس با ما</a>
-              </li>
-            </ul>
+
+          <div class="menu-tabs-bar">
+            <button
+              class="menu-tab-pill mobile-menu-active"
+              data-tab="nav-panel"
+            >
+              منو
+            </button>
+            <button class="menu-tab-pill" data-tab="cat-panel">
+              دسته‌بندی‌ها
+            </button>
+          </div>
+
+          <!-- Search bar -->
+          <div class="menu-search-bar">
+            <i class="bi bi-search menu-search-icon"></i>
+            <input
+              type="text"
+              id="menuSearchInput"
+              placeholder="جستجو در منو ها ... "
+              autocomplete="off"
+            />
+            <button class="menu-search-clear" id="menuSearchClear">
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+
+          <div class="menu-search-results" id="menuSearchResults"></div>
+          <!-- End Search bar -->
+
+          <div class="menu-tab-panel mobile-menu-active" id="nav-panel">
+            <a href="index.html" class="menu-nav-item">
+              <span class="nav-icon"
+                ><i class="bi bi-house-door-fill"></i
+              ></span>
+              صفحه اصلی
+            </a>
+            <a href="category.html" class="menu-nav-item">
+              <span class="nav-icon"><i class="bi bi-fire"></i></span>
+              جدیدترین‌ها
+            </a>
+            <a href="category.html" class="menu-nav-item">
+              <span class="nav-icon"><i class="bi bi-percent"></i></span>
+              تخفیف‌دارها
+            </a>
+            <a href="cart.html" class="menu-nav-item">
+              <span class="nav-icon"><i class="bi bi-cart3"></i></span>
+              سبد خرید
+            </a>
+            <a href="#" class="menu-nav-item">
+              <span class="nav-icon"
+                ><i class="bi bi-info-circle-fill"></i
+              ></span>
+              درباره ما
+            </a>
+            <a href="#" class="menu-nav-item">
+              <span class="nav-icon"><i class="bi bi-headset"></i></span>
+              تماس با ما
+            </a>
+            <a href="#" class="menu-nav-item">
+              <span class="nav-icon"><i class="bi bi-truck"></i></span>
+              پیگیری سفارش
+            </a>
+            <a href="#" class="menu-nav-item">
+              <span class="nav-icon"
+                ><i class="bi bi-patch-question-fill"></i
+              ></span>
+              پرسش‌های متداول
+            </a>
+
+            <a href="login.html" class="login-cta">
+              <i class="bi bi-person-circle"></i>
+              ورود / ثبت‌نام
+            </a>
+          </div>
+
+          <div class="menu-tab-panel" id="cat-panel">
+            <div class="cat-list">
+              <div class="cat-card">
+                <span class="cat-icon-box cat-toggle">💈</span>
+                <a href="/category/classic-chair" class="cat-name"
+                  >صندلی کلاسیک آرایشگاه</a
+                >
+              </div>
+
+              <!-- Submenu -->
+              <div class="cat-submenu">
+                <a href="/category/classic-chair/wood" class="cat-sub-item">
+                  <i class="bi bi-dot"></i> صندلی چوبی کلاسیک
+                </a>
+                <a href="/category/classic-chair/metal" class="cat-sub-item">
+                  <i class="bi bi-dot"></i> صندلی فلزی کلاسیک
+                </a>
+                <a href="/category/classic-chair/vintage" class="cat-sub-item">
+                  <i class="bi bi-dot"></i> صندلی وینتیج
+                </a>
+              </div>
+              <!-- End Submenu -->
+
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">🪑</span>
+                <span class="cat-name">صندلی هیدرولیک</span>
+              </a>
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">✂️</span>
+                <span class="cat-name">صندلی برقی</span>
+              </a>
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">🧴</span>
+                <span class="cat-name">صندلی شامپو‌کاری</span>
+              </a>
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">🧖</span>
+                <span class="cat-name">صندلی اصلاح صورت</span>
+              </a>
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">💇</span>
+                <span class="cat-name">صندلی رنگ مو</span>
+              </a>
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">🔧</span>
+                <span class="cat-name">صندلی تنظیم‌پذیر</span>
+              </a>
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">👶</span>
+                <span class="cat-name">صندلی کودک آرایشگاه</span>
+              </a>
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">♿</span>
+                <span class="cat-name">صندلی مخصوص معلولان</span>
+              </a>
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">🛁</span>
+                <span class="cat-name">سینک و تخت شستشو</span>
+              </a>
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">🌟</span>
+                <span class="cat-name">صندلی VIP لاکچری</span>
+              </a>
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">📦</span>
+                <span class="cat-name">صندلی تاشوی سیار</span>
+              </a>
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">🔩</span>
+                <span class="cat-name">قطعات یدکی صندلی</span>
+              </a>
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">🎨</span>
+                <span class="cat-name">صندلی روکش‌دار چرمی</span>
+              </a>
+              <a href="#" class="cat-card">
+                <span class="cat-icon-box">🏪</span>
+                <span class="cat-name">پکیج کامل صندلی سالن</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -833,7 +968,7 @@
         </section>
 
         <!-- Product Grid -->
-        <section class="store-front reveal mt-5">
+        <section class="store-front reveal mt-5 overflow-x-hidden">
           <img
             class="store-front-abstract"
             src="./assets/images/footer-abstract.jpg"
@@ -845,7 +980,7 @@
             </div>
 
             <div class="store-front-content row g-4">
-              <div class="col-lg-4 col-md-6 col-6 reveal">
+              <div class="col-lg-3 col-md-6 col-6 reveal">
                 <div class="product-card">
                   <div class="product-img-container">
                     <img
@@ -871,7 +1006,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 col-6 reveal delay-100">
+              <div class="col-lg-3 col-md-6 col-6 reveal">
                 <div class="product-card">
                   <div class="product-img-container">
                     <img
@@ -891,7 +1026,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 col-6 reveal delay-200">
+              <div class="col-lg-3 col-md-6 col-6 reveal">
                 <div class="product-card">
                   <div class="product-img-container">
                     <img

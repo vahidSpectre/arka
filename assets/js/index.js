@@ -31,14 +31,14 @@ document.addEventListener("DOMContentLoaded", function () {
       paperTl.play();
     });
 
-window.addEventListener("scroll", () => {
-  // Check visibility via opacity instead of activeElement (unreliable on scroll)
-  const isVisible = gsap.getProperty(searchPaper, "opacity") > 0;
-  if (isVisible) {
-    paperTl.reverse();
-    searchInput.blur();
-  }
-});
+    window.addEventListener("scroll", () => {
+      // Check visibility via opacity instead of activeElement (unreliable on scroll)
+      const isVisible = gsap.getProperty(searchPaper, "opacity") > 0;
+      if (isVisible) {
+        paperTl.reverse();
+        searchInput.blur();
+      }
+    });
 
     // Handle clicks outside to close
     document.addEventListener("click", (e) => {
@@ -139,8 +139,10 @@ window.addEventListener("scroll", () => {
   const menuOverlay = document.getElementById("customMobileMenu");
   const menuToggle = document.getElementById("menuToggleTrigger");
   const closeToggle = document.getElementById("closeMenuTrigger");
+
+  // All clickable links across both panels
   const menuLinks = menuOverlay
-    ? menuOverlay.querySelectorAll(".menu-link")
+    ? menuOverlay.querySelectorAll(".menu-nav-item, .cat-card")
     : [];
 
   if (menuOverlay && menuToggle && closeToggle && typeof gsap !== "undefined") {
@@ -170,11 +172,22 @@ window.addEventListener("scroll", () => {
         },
       )
       .from(
-        menuLinks,
-        { y: -50, opacity: 0, stagger: 0.1, duration: 0.5, ease: "power2.out" },
+        // Only animate items in the currently active panel
+        () =>
+          menuOverlay.querySelectorAll(
+            ".menu-tab-panel.active .menu-nav-item, .menu-tab-panel.active .cat-card",
+          ),
+        {
+          y: -50,
+          opacity: 0,
+          stagger: 0.07,
+          duration: 0.5,
+          ease: "power2.out",
+        },
         "-=0.5",
       );
 
+    // ── Open / Close ───────────────────────────────────────
     menuToggle.addEventListener("click", () => {
       if (menuTl.reversed()) {
         menuTl.play();
@@ -185,7 +198,6 @@ window.addEventListener("scroll", () => {
 
     closeToggle.addEventListener("click", () => {
       menuTl.reverse();
-
       menuTl.eventCallback("onReverseComplete", () => {
         document.body.style.overflow = "scroll";
       });
@@ -196,6 +208,199 @@ window.addEventListener("scroll", () => {
         menuTl.reverse();
         document.body.style.overflow = "scroll";
       });
+    });
+
+    // ── Tab Switching ──────────────────────────────────────
+    const pills = menuOverlay.querySelectorAll(".menu-tab-pill");
+    const panels = menuOverlay.querySelectorAll(".menu-tab-panel");
+
+    pills.forEach((pill) => {
+      pill.addEventListener("click", () => {
+        const target = pill.dataset.tab;
+
+        // Swap active states
+        pills.forEach((p) => p.classList.remove("mobile-menu-active"));
+        panels.forEach((p) => p.classList.remove("mobile-menu-active"));
+        pill.classList.add("mobile-menu-active");
+
+        const activePanel = document.getElementById(target);
+        activePanel.classList.add("mobile-menu-active");
+
+        // Re-animate items in the newly revealed panel
+        const items = activePanel.querySelectorAll(".menu-nav-item, .cat-card");
+        gsap.fromTo(
+          items,
+          { y: -30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.06,
+            duration: 0.4,
+            ease: "power2.out",
+          },
+        );
+      });
+    });
+  }
+
+  // ── Submenu toggle ──────────────────────────────────
+  document.querySelectorAll(".cat-card").forEach((card) => {
+    const submenu = card.nextElementSibling;
+    const hasSubmenu = submenu && submenu.classList.contains("cat-submenu");
+
+    if (!hasSubmenu) return;
+
+    card.insertAdjacentHTML(
+      "beforeend",
+      `<i data-lucide="chevron-left" class="cat-toggle cat-arrow"></i>`,
+    );
+
+    lucide.createIcons();
+
+    card.querySelectorAll(".cat-toggle").forEach((trigger) => {
+      trigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const isOpen = card.classList.contains("open");
+
+        document.querySelectorAll(".cat-card.open").forEach((openCard) => {
+          openCard.classList.remove("open");
+          const openSub = openCard.nextElementSibling;
+          if (openSub && openSub.classList.contains("cat-submenu")) {
+            openSub.classList.remove("open");
+          }
+        });
+
+        if (!isOpen) {
+          card.classList.add("open");
+          submenu.classList.add("open");
+        }
+      });
+    });
+  });
+
+  // ── Menu Search ────────────────────────────────────────────────
+  const menuSearchInput = document.getElementById("menuSearchInput");
+  const menuSearchResults = document.getElementById("menuSearchResults");
+  const menuSearchClear = document.getElementById("menuSearchClear");
+
+  if (menuSearchInput && menuSearchResults) {
+    // Crawl the entire menu DOM and build an index automatically
+    function buildMenuIndex() {
+      const index = [];
+
+      // ── Nav items (tab 1) ──────────────────────────
+      menuOverlay.querySelectorAll(".menu-nav-item").forEach((el) => {
+        const text = el.textContent.trim();
+        const href = el.getAttribute("href") || "#";
+        const icon =
+          el.querySelector(".nav-icon")?.innerHTML ||
+          '<i class="bi bi-link"></i>';
+        if (text) index.push({ text, href, icon, tag: "منو" });
+      });
+
+      // ── Cat cards (tab 2) ──────────────────────────
+      menuOverlay.querySelectorAll(".cat-card").forEach((card) => {
+        const nameEl = card.querySelector(".cat-name");
+        const iconEl = card.querySelector(".cat-icon-box");
+        const text = nameEl?.textContent.trim();
+        const href =
+          nameEl?.getAttribute("href") || card.getAttribute("href") || "#";
+        const icon = iconEl?.textContent.trim() || "📦";
+        if (text) index.push({ text, href, icon, tag: "دسته‌بندی" });
+      });
+
+      // ── Sub items ──────────────────────────────────
+      menuOverlay.querySelectorAll(".cat-sub-item").forEach((el) => {
+        const text = el.textContent.trim();
+        const href = el.getAttribute("href") || "#";
+        if (text) index.push({ text, href, icon: "↳", tag: "زیردسته" });
+      });
+
+      return index;
+    }
+
+    function highlight(text, query) {
+      const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      return text.replace(new RegExp(`(${escaped})`, "gi"), "<mark>$1</mark>");
+    }
+
+    function renderResults(matches, query) {
+      menuSearchResults.innerHTML = "";
+
+      if (!matches.length) {
+        menuSearchResults.innerHTML = `<div class="menu-search-empty">نتیجه‌ای یافت نشد</div>`;
+        return;
+      }
+
+      matches.forEach(({ text, href, icon, tag }) => {
+        const item = document.createElement("a");
+        item.className = "search-result-item";
+        item.href = href;
+        item.innerHTML = `
+        <span class="search-result-icon">${icon}</span>
+        <span class="search-result-label">
+          ${highlight(text, query)}
+          <span class="search-result-tag">${tag}</span>
+        </span>
+      `;
+        menuSearchResults.appendChild(item);
+      });
+    }
+
+    function showSearchMode(on) {
+      const tabPanels = menuOverlay.querySelectorAll(".menu-tab-panel");
+      if (on) {
+        tabPanels.forEach((p) => (p.style.display = "none"));
+        menuSearchResults.classList.add("active");
+      } else {
+        menuSearchResults.classList.remove("active");
+        tabPanels.forEach((p) => (p.style.display = ""));
+      }
+    }
+
+    let menuIndex = [];
+
+    menuSearchInput.addEventListener("focus", () => {
+      if (!menuIndex.length) menuIndex = buildMenuIndex();
+    });
+
+    menuSearchInput.addEventListener("input", () => {
+      const query = menuSearchInput.value.trim();
+
+      menuSearchClear.classList.toggle("visible", query.length > 0);
+
+      if (!query) {
+        showSearchMode(false);
+        return;
+      }
+
+      showSearchMode(true);
+
+      const matches = menuIndex.filter(({ text }) => text.includes(query));
+
+      renderResults(matches, query);
+
+      // Animate results in
+      gsap.fromTo(
+        menuSearchResults.querySelectorAll(".search-result-item"),
+        { y: -15, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.04, duration: 0.3, ease: "power2.out" },
+      );
+    });
+
+    menuSearchClear.addEventListener("click", () => {
+      menuSearchInput.value = "";
+      menuSearchClear.classList.remove("visible");
+      showSearchMode(false);
+      menuSearchInput.focus();
+    });
+
+    // Reset search when menu closes
+    menuToggle.addEventListener("click", () => {
+      menuSearchInput.value = "";
+      menuSearchClear.classList.remove("visible");
+      showSearchMode(false);
     });
   }
 
