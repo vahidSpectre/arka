@@ -217,21 +217,24 @@
   }
 }
 
-
 /* ── Filters Modal ─────────────────────────── */
 .filters-modal {
-  display: none;
+  /* display: none; */
   position: fixed;
   inset: 0;
   z-index: 2000;
   background: rgba(0, 0, 0, 0.5);
   align-items: flex-end;
   justify-content: center;
-  transition: all .25s ease;
+  transition: all 0.25s ease;  transform: translateY(100%);
+  transition-delay: 0.25s;
+    transform: translateY(-100%);
+
 }
 
 .filters-modal.active {
   display: flex;
+  transform: translateY(0%);
 }
 
 .filters-modal-content {
@@ -242,6 +245,7 @@
   max-height: 90vh;
   display: flex;
   flex-direction: column;
+
 }
 
 .filters-modal-header {

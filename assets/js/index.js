@@ -444,9 +444,14 @@ document.addEventListener("DOMContentLoaded", function () {
     console.warn("Swiper library not loaded.");
   } else {
     if (document.querySelector(".mainHeroSwiper")) {
-      new Swiper(".mainHeroSwiper", {
+      const mainSwiper = new Swiper(".mainHeroSwiper", {
         loop: true,
-        autoplay: { delay: 6000 },
+        speed: 900,
+        autoplay: {
+          delay: 6000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
         pagination: {
           el: ".mainHeroSwiper .swiper-pagination",
           clickable: true,
@@ -456,6 +461,34 @@ document.addEventListener("DOMContentLoaded", function () {
           prevEl: ".mainHeroSwiper .swiper-button-prev",
         },
       });
+
+      const contentSwiper = new Swiper(".mainHeroSwiperContent", {
+        loop: true,
+        spaceBetween: 100,
+        speed: 900,
+        pagination: {
+          el: ".mainHeroSwiperContent .swiper-pagination",
+          clickable: true,
+        },
+      });
+
+      mainSwiper.on("slideChange", function () {
+        if (contentSwiper.realIndex !== this.realIndex) {
+          contentSwiper.slideToLoop(this.realIndex, 0);
+        }
+      });
+
+      contentSwiper.on("slideChange", function () {
+        if (mainSwiper.realIndex !== this.realIndex) {
+          mainSwiper.slideToLoop(this.realIndex, 0);
+        }
+      });
+
+      mainSwiper.on("autoplayStop", () => contentSwiper.autoplay.stop());
+      contentSwiper.on("autoplayStop", () => mainSwiper.autoplay.stop());
+
+      mainSwiper.on("autoplayStart", () => contentSwiper.autoplay.start());
+      contentSwiper.on("autoplayStart", () => mainSwiper.autoplay.start());
     }
 
     if (document.querySelector(".specialOffers")) {
@@ -470,7 +503,14 @@ document.addEventListener("DOMContentLoaded", function () {
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         },
-        pagination: { el: ".swiper-pagination", clickable: true },
+        pagination: {
+          el: ".specialOffers .swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".specialOffers .swiper-button-next",
+          prevEl: ".specialOffers .swiper-button-prev",
+        },
       });
 
       // Animate progress bar for a given slide element
@@ -518,6 +558,14 @@ document.addEventListener("DOMContentLoaded", function () {
           768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
         },
+        pagination: {
+          el: ".discountSwiper .swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".discountSwiper .swiper-button-next",
+          prevEl: ".discountSwiper .swiper-button-prev",
+        },
       });
     }
 
@@ -530,6 +578,14 @@ document.addEventListener("DOMContentLoaded", function () {
           768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
         },
+        pagination: {
+          el: ".popularSwiper .swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".popularSwiper .swiper-button-next",
+          prevEl: ".popularSwiper .swiper-button-prev",
+        },
       });
     }
 
@@ -540,7 +596,15 @@ document.addEventListener("DOMContentLoaded", function () {
         breakpoints: {
           576: { slidesPerView: 2.2 },
           768: { slidesPerView: 3.2 },
-          1024: { slidesPerView: 5 },
+          1024: { slidesPerView: 5.2 },
+        },
+        pagination: {
+          el: ".categoriesSwiper .swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".categoriesSwiper .swiper-button-next",
+          prevEl: ".categoriesSwiper .swiper-button-prev",
         },
       });
     }
